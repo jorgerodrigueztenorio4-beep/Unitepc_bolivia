@@ -1,0 +1,9 @@
+# Ignorar respaldos de Base de Datos
+*.bak
+*.sql
+
+# Ignorar carpetas de Visual Studio
+.vs/
+bin/
+obj/
+packages/
