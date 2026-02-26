@@ -53,7 +53,7 @@
                                 </asp:GridView>
                                 <asp:SqlDataSource ID="sql_ds_horario" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="select * from tb_ing_sal tp
 where tp.ci_doc =@ci
-and tp.gestion='1-2025'  and (tp.hr_ingreso is null or tp.hr_salida is null )  and tp.gestion ='1-2025'
+and tp.gestion='1-2026'  and (tp.hr_ingreso is null or tp.hr_salida is null )  and tp.gestion ='1-2026'
  AND tp.dia =(SELECT (CASE DATENAME(dw,getdate())
  when 'Monday' then 'Lunes'
  when 'Tuesday' then 'Martes'
@@ -305,7 +305,7 @@ from tb_designacion td
  join tb_personal tp on th.ci_doc = tp.ci 
  join planes_estudios p on td.id_materia = p.id_plan 
 left join tb_aula a on th.aula = a.id_nomal 
-where th.ci_doc =@ci  and th.gestion='1-2025' and tp.gestion='1-2025' and a.gestion='1-2024'
+where th.ci_doc =@ci  and th.gestion='1-2026' and tp.gestion='1-2026' and a.gestion='1-2024'
 ORDER BY CASE WHEN th.dia = 'Lunes' THEN 1 WHEN th.dia='Martes' THEN 2 WHEN th.dia='Miercoles' THEN 3 WHEN th.dia='Jueves' THEN 4 WHEN th.dia='Viernes' THEN 5  WHEN th.dia='Sabado' THEN 6  END">
                                      <SelectParameters>
                                          <asp:ControlParameter ControlID="TextBox1" Name="ci" PropertyName="Text" />
@@ -429,7 +429,7 @@ ORDER BY CASE WHEN th.dia = 'Lunes' THEN 1 WHEN th.dia='Martes' THEN 2 WHEN th.d
      </asp:GridView>
                                 <asp:SqlDataSource ID="sql_ds_horario2" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="select * from tb_ing_sal tp
 where tp.ci_doc =@ci
-and tp.gestion='1-2025' 
+and tp.gestion='1-2026' 
  AND tp.dia =(SELECT (CASE DATENAME(dw,getdate())
     when 'Lunes' then 'Lunes'
      when 'Martes' then 'Martes'
@@ -546,7 +546,10 @@ where ci_doc =@ci and hr_salida is null
              <asp:ControlParameter ControlID="TextBox1" Name="ci" PropertyName="Text" />
          </InsertParameters>
     </asp:SqlDataSource>
-    <asp:TextBox ID="txt_ip" Visible ="false"  runat="server"></asp:TextBox>
+    <asp:TextBox ID="txt_ip"  runat="server" Visible="False"></asp:TextBox>
+
+                            
+
 
                             </asp:Content>
 

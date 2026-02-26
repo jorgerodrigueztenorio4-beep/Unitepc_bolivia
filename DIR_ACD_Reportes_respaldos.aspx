@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="DIR_ACD_Reportes_respaldos.aspx.vb" Inherits="DIR_ACD_Reportes_respaldos" MasterPageFile="mp_dir_academico.master" %>
 
 <asp:Content ID="Content1" runat="server" contentplaceholderid="ContentPlaceHolder1">
-    <form runat ="server"  >
+   
       <div class="alert alert-success mt-1 text-md-center text-bold " role="alert">
     <asp:Label ID="lbl_cargo"  runat="server" Text=""></asp:Label>
         </div> 

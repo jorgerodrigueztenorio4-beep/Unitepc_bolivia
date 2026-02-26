@@ -4,14 +4,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
             <asp:TextBox ID="txt_carrera" placeholder="Carrera" runat="server"></asp:TextBox>
-            <asp:TextBox ID="txt_cod_est" placeholder ="Cod est" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txt_cod_est" placeholder="Cod est" runat="server"></asp:TextBox>
             <asp:Button ID="Button1" runat="server" Text="Button" />
             <asp:Button ID="Button2" runat="server" Text="buscar" />
             <asp:GridView ID="gv_res" runat="server" Font-Names="Consolas" AllowSorting="True">
@@ -43,7 +43,7 @@ join tb_designacion d on d.id_horario = h.id_horario
 join planes_estudios p on d.id_materia = p.id_plan 
 join tb_aula a on h.aula = a.id_nomal 
 join tb_personal pe on h.ci_doc =pe.ci 
-where h.gestion ='1-2024' and d.carrera =@car and a.gestion ='1-2024' and pe.gestion ='1-2024' and h.sede='1'">
+where h.gestion ='1-2026' and d.carrera =@car and a.gestion ='1-2024' and pe.gestion ='1-2026' and h.sede='1'">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="txt_carrera" Name="car" PropertyName="Text" />
                 </SelectParameters>

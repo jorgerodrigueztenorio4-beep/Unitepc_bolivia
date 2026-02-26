@@ -2,7 +2,7 @@
 
 
 <asp:Content ID="Content1" runat="server" contentplaceholderid="ContentPlaceHolder1">
-    <%--<form id="form1" runat="server">--%>
+    
     <div class="alert alert-success mt-1 text-md-center text-bold " role="alert">
     <asp:Label ID="lbl_cargo"  runat="server" Text=""></asp:Label>
         </div> 
@@ -19,7 +19,7 @@
                                      <asp:DropDownList ID="ddl_carrera" CssClass="form-control btn btn-default dropdown-toggle mt-1" runat="server" DataSourceID="sql_ds_carrera" DataTextField="CARDES" DataValueField="CARSIGLA" AutoPostBack="True"></asp:DropDownList>
                                      <asp:SqlDataSource ID="sql_ds_carrera" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="SELECT * FROM [tb_carreras]"></asp:SqlDataSource>
                                 </div>
-                                     <asp:GridView ID="gv_horarios" CssClass ="table table-hover mt-1 " runat="server" AutoGenerateColumns="False" DataSourceID="sql_horarios" Font-Size="10pt">
+                                     <asp:GridView ID="gv_horarios" CssClass ="table table-hover mt-1 " runat="server" AutoGenerateColumns="False" DataSourceID="sql_horarios" Font-Size="10pt" GridLines="None">
                                          <Columns>
                                              <asp:CommandField ShowSelectButton="True" ButtonType="Button" ControlStyle-CssClass="btn btn-danger" SelectText="Eliminar">
 <ControlStyle CssClass="btn btn-danger"></ControlStyle>
@@ -54,7 +54,7 @@ order by m.Semestre " UpdateCommand="update d set d.horas =@horas
  from tb_horario h
 join tb_designacion d on d.id_horario=h.id_horario 
 join tb_personal p on h.ci_doc = p.ci 
-where h.gestion  ='1-2026' and d.id_designacion =@id_designacion" DeleteCommand="DELETE FROM tb_horario WHERE (id_horario = @id_horario)">
+where h.gestion  ='2-2025' and d.id_designacion =@id_designacion" DeleteCommand="DELETE FROM tb_horario WHERE (id_horario = @id_horario)">
                                          <DeleteParameters>
                                              <asp:ControlParameter ControlID="txt_id_horairo" Name="id_horario" PropertyName="Text" />
                                          </DeleteParameters>
@@ -68,6 +68,8 @@ where h.gestion  ='1-2026' and d.id_designacion =@id_designacion" DeleteCommand=
                                          </UpdateParameters>
                                      </asp:SqlDataSource>
                                      <asp:TextBox ID="txt_id_horairo" runat="server" Visible="False"></asp:TextBox>
+                                     <asp:TextBox ID="txt_ci_delete" runat="server" Visible="False"></asp:TextBox>
+                                     <asp:TextBox ID="txt_objeto" runat="server" Visible="False"></asp:TextBox>
                                      <div class="input-group mb-1">
                                      
                                          </div>
@@ -75,7 +77,7 @@ where h.gestion  ='1-2026' and d.id_designacion =@id_designacion" DeleteCommand=
 join tb_designacion d on d.id_horario=h.id_horario 
 join tb_personal p on h.ci_doc = p.ci
 join planes_estudios m on d.id_materia = m.id_plan 
-where h.id_horario=@id and p.gestion ='1-2025'" UpdateCommand="update tb_designacion 
+where h.id_horario=@id and p.gestion ='2-2025'" UpdateCommand="update tb_designacion 
 set horas =@horas
 where id_designacion =@idd" DeleteCommand="DELETE FROM tb_designacion WHERE (id_horario = @id_horario)">
                                          <DeleteParameters>
@@ -93,7 +95,33 @@ where id_designacion =@idd" DeleteCommand="DELETE FROM tb_designacion WHERE (id_
                                 </div>
             </div>
          </div>
-
+    <asp:SqlDataSource ID="sql_ds_eliminacion" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="SELECT * FROM [tb_bitacora_eliminacion]" InsertCommand="INSERT INTO tb_bitacora_eliminacion
+(
+    id_horario,
+    id_designacion,
+    ci_delete,
+    date_delete,
+    carrera,
+objeto
+)
+VALUES
+(
+    @id_horario,
+    @id_designacion,
+    @ci_delete,
+    getdate(),
+    @carrera,
+@objeto
+);
+">
+        <InsertParameters>
+            <asp:ControlParameter ControlID="txt_id_horairo" Name="id_horario" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txt_id_horairo" Name="id_designacion" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txt_ci_delete" Name="ci_delete" PropertyName="Text" />
+            <asp:ControlParameter ControlID="ddl_carrera" Name="carrera" PropertyName="SelectedValue" />
+            <asp:ControlParameter ControlID="txt_objeto" Name="objeto" PropertyName="Text" />
+        </InsertParameters>
+                    </asp:SqlDataSource>
     </form>
 
 </asp:Content>

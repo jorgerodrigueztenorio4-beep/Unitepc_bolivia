@@ -65,13 +65,9 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Listdo de Asistencia  a Clases</h1>
+                        <h1>Listado de Asistencia  a Clases</h1>
                     </div>
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Cerrar Sesion</a></li>
-                        </ol>
-                    </div>
+                
                 </div>
             </div>
             <!-- /.container-fluid -->
@@ -163,7 +159,7 @@
 
                                     </asp:GridView>
 
-                                    <asp:SqlDataSource ID="sql_ds_asistencia_hoy" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="SELECT i.ci_doc, p.nombres + ' ' + p.primerApellido + ' ' + p.segundoApellido AS docente, i.carrera, i.Materia, i.sigla_materia, i.grupo, i.tipo_clase, i.hra_inicio, i.hra_fin, i.hr_ingreso, i.hr_salida, ISNULL(i.observaciones, 'Clases en Curso o Por Cursar') AS observaciones,i.aula_o_lab FROM tb_ing_sal AS i INNER JOIN tb_personal AS p ON i.ci_doc = p.ci WHERE (p.gestion = '1-2026') AND (CONVERT (varchar, i.hora_registro, 103) = CONVERT (varchar, GETDATE(), 103)) AND (i.sede = @sede) AND (i.carrera = @carrera) AND (i.gestion = '1-2026') AND (i.dia = (SELECT (CASE DATENAME(dw , getdate()) WHEN 'Monday' THEN 'Lunes' WHEN 'Martes' THEN 'Martes' WHEN 'Wednesday' THEN 'Miercoles' WHEN 'Thursday' THEN 'Jueves' WHEN 'Friday' THEN 'Viernes' WHEN 'Saturday' THEN 'Sabado' WHEN 'Domingo' THEN 'Domingo' END) AS Expr1)) ORDER BY i.hra_inicio">
+                                    <asp:SqlDataSource ID="sql_ds_asistencia_hoy" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="SELECT i.ci_doc, p.nombres + ' ' + p.primerApellido + ' ' + p.segundoApellido AS docente, i.carrera, i.Materia, i.sigla_materia, i.grupo, i.tipo_clase, i.hra_inicio, i.hra_fin, i.hr_ingreso, i.hr_salida, ISNULL(i.observaciones, 'Clases en Curso o Por Cursar') AS observaciones,i.aula_o_lab FROM tb_ing_sal AS i INNER JOIN tb_personal AS p ON i.ci_doc = p.ci WHERE (p.gestion = '1-2026') AND (CONVERT (varchar, i.hora_registro, 103) = CONVERT (varchar, GETDATE(), 103)) AND (i.sede = @sede) AND (i.carrera = @carrera) AND (i.gestion = '1-2026') AND (i.dia = (SELECT (CASE DATENAME(dw , getdate()) WHEN 'Monday' THEN 'Lunes' WHEN 'Tuesday' THEN 'Martes' WHEN 'Wednesday' THEN 'Miercoles' WHEN 'Thursday' THEN 'Jueves' WHEN 'Friday' THEN 'Viernes' WHEN 'Saturday' THEN 'Sabado' WHEN 'Domingo' THEN 'Domingo' END) AS Expr1)) ORDER BY i.hra_inicio">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="ddl_sede" Name="sede" PropertyName="SelectedValue" />
                                             <asp:ControlParameter ControlID="ddl_carrera" Name="carrera" PropertyName="SelectedValue" />

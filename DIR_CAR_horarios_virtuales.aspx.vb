@@ -20,6 +20,17 @@ Partial Class DIR_CAR_horarios_virtuales
 
     End Sub
 
+
+
+    'Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+    '    Me.gv_horarios_v.DataBind()
+    '    If gv_horarios_v.Rows.Count > 0 Then
+    '        Button1.Visible = True
+    '    Else
+    '        Button1.Visible = False
+    '    End If
+    'End Sub
+
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         gv_horarios_v.DataBind()
         If gv_horarios_v.Rows.Count > 0 Then
@@ -53,7 +64,7 @@ Partial Class DIR_CAR_horarios_virtuales
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "PopModal", script, True)
 
             Case "eliminar"
-                EliminarHorario(idHorario)
+                ' EliminarHorario(idHorario)
                 gv_horarios_v.DataBind()
 
         End Select
@@ -62,17 +73,9 @@ Partial Class DIR_CAR_horarios_virtuales
 
 
     Private Sub EliminarHorario(idHorario As String)
-
-        txt_idhora.Text = idHorario
-        sql_virtuales.Delete()
-        sql_ds_carrera.Insert()
-
-
-
+        'txt_idhora.Text = idHorario
+        'sql_virtuales.Delete()
     End Sub
-
-
-
     Protected Sub ddl_Gestion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddl_Gestion.SelectedIndexChanged
         gv_horarios_v.DataBind()
 
@@ -81,4 +84,6 @@ Partial Class DIR_CAR_horarios_virtuales
 
         End If
     End Sub
+
+
 End Class

@@ -11,12 +11,13 @@ Partial Class RR_HH_Lista_Horarios_x_carrea
         sql_ds_selec.Delete()
         gv_horarios.DataBind()
 
+
     End Sub
 
     Private Sub SEC_DIR_ACD_Lista_Horarios_Load(sender As Object, e As EventArgs) Handles Me.Load
         If Session("idus") <> "" Then
 
-            ' lbl_cargo.Text = Session("rol_nombre") + " : " + Session("nombre_usuario")
+            lbl_cargo.Text = Session("rol_nombre") + " : " + Session("nombre_usuario")
 
         Else
             Response.Redirect("~/sesion.aspx")

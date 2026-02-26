@@ -69,7 +69,7 @@ from tb_designacion td
  join tb_personal tp on th.ci_doc = tp.ci 
  join planes_estudios p on td.id_materia = p.id_plan 
 left join tb_aula a on th.aula = a.id_nomal 
-where th.ci_doc =@ci  and th.gestion='2-2024' and tp.gestion='2-2024' and a.gestion='1-2024'
+where th.ci_doc =@ci  and th.gestion='1-2026' and tp.gestion='1-2026' and a.gestion='1-2024'
 ORDER BY hora_inicio, CASE WHEN th.dia = 'Lunes' THEN 1 WHEN th.dia='Martes' THEN 2 WHEN th.dia='Miercoles' THEN 3 WHEN th.dia='Jueves' THEN 4 WHEN th.dia='Viernes' THEN 5  WHEN th.dia='Sabado' THEN 6  END" >
                                      <SelectParameters>
                                          <asp:ControlParameter ControlID="txt_ci" Name="ci" PropertyName="Text" />

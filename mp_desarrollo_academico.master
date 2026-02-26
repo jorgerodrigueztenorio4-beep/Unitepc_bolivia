@@ -833,9 +833,9 @@
 
     <!-- Main content -->
     <section class="content">
-       
+       <form runat="server">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
-            
+            </form>
     </section>
     <!-- /.content -->
   </div>

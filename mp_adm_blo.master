@@ -209,6 +209,15 @@
             </a>
           </li>
 
+                   <li class="nav-item ">
+            <a class="nav-link" href="./ADM_BLO_Horarios_dia.aspx">
+                <i class="far fa-address-book"></i>
+              <p>Horario semanal
+                       
+              </p>
+            </a>
+          </li>
+
          <%-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>

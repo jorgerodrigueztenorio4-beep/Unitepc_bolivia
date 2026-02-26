@@ -2,13 +2,24 @@
 
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
-        <style>
+    <style>
+        .table-scroll {
+            max-height: 650px; /* ajusta a tu gusto */
+            overflow-y: auto; /* scrollbar vertical */
+            overflow-x: auto; /* por si hay muchas columnas */
+        }
 
-
-
-</style>
+            .table-scroll thead th {
+                position: sticky;
+                top: 0;
+                background: #f8f9fa;
+                z-index: 2;
+            }
+    </style>
     <form id="form1" runat="server">
-       
+        <div class="alert alert-success mt-1 text-md-center text-bold " role="alert">
+            <asp:Label ID="lbl_cargo" runat="server" Text=""></asp:Label>
+        </div>
         <div class=" container-fluid ">
             <div class="row">
 
@@ -33,7 +44,7 @@
 
                     <div class="table-scroll">
                         <asp:GridView ID="gv_horarios"
-                            CssClass="table table-striped table-hover table-bordered"
+                            CssClass="table table-hover mt-1"
                             runat="server"
                             AutoGenerateColumns="False"
                             DataSourceID="sql_horarios"
@@ -54,13 +65,11 @@
                                             <strong>C.I.:</strong> <%# Eval("ci") %>
                                         </div>
                                     </ItemTemplate>
-                                  
+
                                 </asp:TemplateField>
 
 
-                                <asp:BoundField DataField="tipo_clase" HeaderText="Tipo de Clase">
-                                   
-                                </asp:BoundField>
+                                <asp:BoundField DataField="tipo_clase" HeaderText="Tipo de Clase"></asp:BoundField>
 
 
                                 <asp:TemplateField HeaderText="Materia">
@@ -79,7 +88,7 @@
                                     <ItemTemplate>
                                         <span class="badge bg-info" style="font-size: 9pt; padding: 6px 10px;">
                                             <%# Eval("hora_inicio") %> - <%# Eval("hora_fin") %>
-                </span>
+                                        </span>
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
@@ -177,4 +186,6 @@ where id_designacion =@idd"
     </form>
 
 </asp:Content>
+
+
 

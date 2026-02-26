@@ -167,6 +167,12 @@
             </a>
           </li>
 
+             <li class="nav-item">
+            <a class="nav-link" href="./DAF_LOCAL_con_sin_docente_detallado.aspx">
+           <i class="fas fa-folder-open"></i>
+              <p>Materias con/sin docente</p>
+            </a>
+          </li>
               <%-- <li class="nav-item">
             <a class="nav-link" href="./DAF_LOCAL_Aulas_des_2.aspx">
         <i class="fas fa-user-edit"></i>

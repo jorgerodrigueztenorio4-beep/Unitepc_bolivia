@@ -67,7 +67,7 @@
     
 FROM tb_ing_sal ti
 JOIN tb_personal tp ON ti.ci_doc = tp.ci 
-WHERE  ti.bloque = @blo and ti.gestion ='1-2025' AND TP.gestion ='1-2025'  AND ti.dia =(SELECT (CASE DATENAME(dw,getdate())
+WHERE  ti.bloque = @blo and ti.gestion ='2-2025' AND TP.gestion ='2-2025'  AND ti.dia =(SELECT (CASE DATENAME(dw,getdate())
 when 'Monday' then 'Lunes'
 when 'Tuesday' then 'Martes'
 when 'Wednesday' then 'Miercoles'

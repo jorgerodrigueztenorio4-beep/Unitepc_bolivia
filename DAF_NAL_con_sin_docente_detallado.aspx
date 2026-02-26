@@ -2,10 +2,8 @@
 
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
-    
     <form id="form1" runat="server">
-<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <h2>Reporte</h2>
+        <h2>Materias con y sin docente detallado</h2>
 
         <section class="content">
             <div class="container-fluid">
@@ -15,7 +13,7 @@
                             <span class="info-box-icon bg-success elevation-1"><i class="fas fa-reply"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text">Cantidad de clases de la gestion 2-2025</span>
+                                <span class="info-box-text">Cantidad de clases de la gestion anterior</span>
                                 <span class="info-box-number">
                                     <asp:Label ID="lbl_anterior_ges" runat="server" Text="Label"></asp:Label>
                                 </span>
@@ -30,46 +28,6 @@
                                 <span class="info-box-text">Cantidad de clases de la gestion actual</span>
                                 <span class="info-box-number">
                                     <asp:Label ID="lbl_actual_ges" runat="server" Text="Label"></asp:Label>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <h5>CLases con y sin Docente</h5>
-        <section class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 col-sm-6 col-md-3">
-                        <div class="info-box">
-                            <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-user"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text">Cantidad de clases con docente</span>
-                                <span class="info-box-number">
-                                    <asp:Label ID="lbl_con_doc" runat="server" Text="Label"></asp:Label>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-3">
-                        <div class="info-box mb-3">
-                            <span class="info-box-icon bg-info elevation-1"><i class="fa fa-solid fa-eye-slash"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text">Cantidad de clases sin docente</span>
-                                <span class="info-box-number">
-                                    <asp:Label ID="lbl_sindoc" runat="server" Text="Label"></asp:Label>
-                                    <span class="badge rounded-pill text-bg-dark">
-                                        <button type="button"
-        class="btn btn-danger btn-sm"
-        data-toggle="modal"
-        data-target="#modalSinDocente">
-    Ver
-</button>
-
-</span>
                                 </span>
                             </div>
                         </div>
@@ -249,49 +207,6 @@ where th.gestion ='1-2026' and per.gestion ='1-2026' and a.gestion ='1-2024' and
 
             </div>
         </section>
-        <!-- MODAL CLASES SIN DOCENTE -->
-<div class="modal fade" id="modalSinDocente" tabindex="-1" aria-labelledby="modalSinDocenteLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-scrollable">
-        <div class="modal-content">
-
-            <div class="modal-header bg-danger">
-                <h5 class="modal-title text-white" id="modalSinDocenteLabel">
-                    Clases sin Docente
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-
-            <div class="modal-body">
-                <!-- Puedes reutilizar tu GridView -->
-                <asp:GridView ID="gv_modal_sin_doc"
-                    runat="server"
-                    CssClass="table table-bordered table-sm"
-                    AutoGenerateColumns="False"
-                    DataSourceID="sql_ds_sin_doc"
-                    Font-Size="9pt">
-                    
-                    <Columns>
-                        <asp:BoundField DataField="dia" HeaderText="Día" />
-                        <asp:BoundField DataField="hora_inicio" HeaderText="Inicio" />
-                        <asp:BoundField DataField="hora_fin" HeaderText="Fin" />
-                        <asp:BoundField DataField="Materia" HeaderText="Materia" />
-                        <asp:BoundField DataField="SiglaP" HeaderText="Sigla" />
-                        <asp:BoundField DataField="grupo" HeaderText="Grupo" />
-                        <asp:BoundField DataField="nom_aula_lab" HeaderText="Aula" />
-                    </Columns>
-                </asp:GridView>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                    Cerrar
-                </button>
-            </div>
-
-        </div>
-    </div>
-</div>
-
     </form>
 </asp:Content>
 

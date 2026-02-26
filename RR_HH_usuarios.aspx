@@ -35,7 +35,7 @@
                   <div class="form-group row">
                     <label for="exampleInputEmail1" class="col-sm-4 col-form-label">Sede :</label>
                       <div class="col-sm-8">
-                         <asp:DropDownList ID="ddl_sede" CssClass ="dropdown-corporate " runat="server" DataSourceID="sql_ds_sede" DataTextField="NombreSede" DataValueField="idSede" AutoPostBack="True"></asp:DropDownList>
+                         <asp:DropDownList ID="ddl_sede" CssClass ="form-control " runat="server" DataSourceID="sql_ds_sede" DataTextField="NombreSede" DataValueField="idSede" AutoPostBack="True"></asp:DropDownList>
                                 </div>
                           </div>
                
@@ -43,7 +43,7 @@
                     <label for="exampleInputEmail1" class="col-sm-4 col-form-label">Tipo de Usuario:</label>
                       <div class="col-sm-8">
                          
-                         <asp:DropDownList ID="ddl_tipo_usuario" CssClass ="dropdown-corporate" runat="server" DataSourceID="sql_rol" DataTextField="rol" DataValueField="id_rol" AutoPostBack="True" AppendDataBoundItems="True">
+                         <asp:DropDownList ID="ddl_tipo_usuario" CssClass ="form-control " runat="server" DataSourceID="sql_rol" DataTextField="rol" DataValueField="id_rol" AutoPostBack="True" AppendDataBoundItems="True">
                              <asp:ListItem Value="0">Seleccione un Rol</asp:ListItem>
                           </asp:DropDownList>
                                 </div>
@@ -134,7 +134,7 @@ group by nombres ,primerApellido, segundoApellido,ci
                  </div>
               <div class="card-body">
                
-                  <asp:GridView ID="gv_asignaciones" CssClass ="grid-corporate" runat="server" DataSourceID="sql_ds_usuarios_asignados" AutoGenerateColumns="False" DataKeyNames="id_usuario,id_rol" Font-Names="Consolas" Font-Size="9pt" GridLines="None">
+                  <asp:GridView ID="gv_asignaciones" CssClass ="table table-hover " runat="server" DataSourceID="sql_ds_usuarios_asignados" AutoGenerateColumns="False" DataKeyNames="id_usuario,id_rol" Font-Names="Consolas" Font-Size="9pt" GridLines="None">
                       <Columns>
                           <asp:CommandField ShowDeleteButton="True" />
                           <asp:BoundField DataField="id_usuario" HeaderText="id_usuario" InsertVisible="False" ReadOnly="True" SortExpression="id_usuario" Visible ="false"  />

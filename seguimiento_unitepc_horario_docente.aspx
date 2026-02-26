@@ -1,24 +1,25 @@
 ﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="seguimiento_unitepc_horario_docente.aspx.vb" Inherits="seguimiento_unitepc_horario_docente" MasterPageFile="~/mp_cbba.master" %>
 
 
-<asp:Content ID="Content1" runat="server" contentplaceholderid="ContentPlaceHolder1">
-    
+<asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
 
-     <div class="alert alert-success mt-1 text-md-center text-bold  " role="alert">
-    <h3>Seguimiento Docente Cochabamba</h3>
-        </div> 
-     <div class=" container-fluid">
-    	<div class="row">
-             
 
-                            <div class="col-md-12 p-3 mb-1   text-black border border-dark rounded  ">
-                             
-                                 <div class="alert-warning text-md-center  rounded  " role="alert">
-                       <h3></h3>Ingrese Su Nro de C.I.
-                            </div> 
-                                <asp:TextBox ID="txt_ci" placeholder="Ingrese Su nro de C.I." CssClass ="form-control mt-2 " runat="server" AutoPostBack="False" Font-Bold="True" Font-Size="15pt"></asp:TextBox>
-                                <asp:Button ID="Button2" runat="server" CssClass="form-control btn btn-primary mt-2" Text="Buscar Clase" />
-                                <asp:GridView ID="gv_horario" CssClass="table table-hover mt-1 " runat="server" AutoGenerateColumns="False" DataSourceID="sql_ds_horario" Font-Size="9pt" Font-Names="Consolas" GridLines="None">
+    <div class="alert alert-success mt-1 text-md-center text-bold  " role="alert">
+        <h3>Seguimiento Docente Cochabamba</h3>
+    </div>
+    <div class=" container-fluid">
+        <div class="row">
+
+
+            <div class="col-md-12 p-3 mb-1   text-black border border-dark rounded  ">
+
+                <div class="alert-warning text-md-center  rounded  " role="alert">
+                    <h3></h3>
+                    Ingrese Su Nro de C.I.
+                </div>
+                <asp:TextBox ID="txt_ci" placeholder="Ingrese Su nro de C.I." CssClass="form-control mt-2 " runat="server" AutoPostBack="False" Font-Bold="True" Font-Size="15pt"></asp:TextBox>
+                <asp:Button ID="Button2" runat="server" CssClass="form-control btn btn-primary mt-2" Text="Buscar Clase" />
+                <%--      <asp:GridView ID="gv_horario" CssClass="table table-hover mt-1 " runat="server" AutoGenerateColumns="False" DataSourceID="sql_ds_horario" Font-Size="9pt" Font-Names="Consolas" GridLines="None">
                                     <Columns>
                                         <asp:BoundField DataField="id_horario" HeaderText="id_horario" InsertVisible="False" ReadOnly="True" SortExpression="id_horario" Visible ="false"  />
                                         <asp:BoundField DataField="ci_doc" HeaderText="Nro de C.I." SortExpression="ci_doc" />
@@ -46,22 +47,135 @@
                                         <asp:BoundField DataField="Sis_plan" HeaderText="Sis_plan" SortExpression="Sis_plan" Visible ="false"  />
                                     </Columns>
                                     <HeaderStyle BackColor="#D4EDDA" ForeColor="#155724" HorizontalAlign="Center" />
-                                 </asp:GridView>
-                                 <asp:SqlDataSource ID="sql_ds_horario" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="select th.id_horario ,th.ci_doc ,(tp.nombres+' '+tp.primerApellido +' '+tp.segundoApellido )as docente, th.hora_inicio ,th.hora_fin,th.grupo,DATEDIFF(SS, th.hora_inicio, th.hora_fin) / 60 / 45 AS Hras_academica,th.dia,th.tipo_clase ,isnull(link_clase,'Sin Link') as link,isnull(a.nom_aula_lab,' ') as Aula ,td.fecha_creacion ,p.SiglaP,p.Materia,p.Sis_plan,th.gestion
+                                 </asp:GridView>--%>
+                <asp:GridView ID="gv_horario"
+                    CssClass="table table-hover mt-1"
+                    runat="server"
+                    AutoGenerateColumns="False"
+                    DataSourceID="sql_ds_horario"
+                    Font-Size="9pt"
+                    Font-Names="Consolas"
+                    GridLines="None">
+
+                    <Columns>
+
+
+                        <asp:BoundField DataField="id_horario"
+                            HeaderText="id_horario"
+                            Visible="false" />
+
+
+                        <asp:TemplateField HeaderText="Docente">
+                            <ItemTemplate>
+                                <strong><%# Eval("docente") %></strong><br />
+                                <span style="color: #6c757d;">C.I.: <%# Eval("ci_doc") %>
+                </span>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:BoundField DataField="dia"
+                            HeaderText="Día"
+                            SortExpression="dia">
+                            <ItemStyle BackColor="" />
+                        </asp:BoundField>
+
+                        <asp:TemplateField HeaderText="Horario">
+                            <ItemTemplate>
+                                <span style="background-color: #CCE5FF; padding: 3px; border-radius: 4px;">
+                                    <%# Eval("hora_inicio", "{0:HH:mm}") %>
+                </span>
+                                -
+               
+                                <span style="background-color: #FFF3CD; padding: 3px; border-radius: 4px;">
+                                    <%# Eval("hora_fin", "{0:HH:mm}") %>
+                </span>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:BoundField DataField="tipo_clase"
+                            HeaderText="Tipo de Clase"
+                            SortExpression="tipo_clase" />
+
+                        <asp:TemplateField HeaderText="Materia">
+                            <ItemTemplate>
+                                <strong style="color: #0056b3;">
+                                    <%# Eval("Materia") %>
+                </strong>
+                                <br />
+                                <span style="background-color: #FFFFCC; padding: 3px; border-radius: 4px;">
+                                    <%# Eval("SiglaP") %>
+                </span>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:BoundField DataField="grupo"
+                            HeaderText="Grupo"
+                            SortExpression="grupo" />
+
+
+                        <asp:BoundField DataField="Hras_academica"
+                            HeaderText="Horas Acad."
+                            ReadOnly="True"
+                            SortExpression="Hras_academica" />
+
+
+
+
+
+
+
+
+                        <asp:BoundField DataField="link"
+                            HeaderText="Link"
+                            ReadOnly="True"
+                            SortExpression="link"
+                            Visible="false" />
+
+
+                        <asp:BoundField DataField="Aula"
+                            HeaderText="Aula"
+                            ReadOnly="True"
+                            SortExpression="Aula" />
+
+
+                        <asp:BoundField DataField="gestion"
+                            HeaderText="Gestión"
+                            SortExpression="gestion" />
+
+
+
+
+
+                        <asp:BoundField DataField="Sis_plan"
+                            Visible="false" />
+
+
+                        <asp:BoundField DataField="fecha_creacion"
+                            Visible="false" />
+
+                    </Columns>
+
+                    <HeaderStyle BackColor="#D4EDDA"
+                        ForeColor="#155724"
+                        HorizontalAlign="Center"
+                        Font-Bold="true" />
+
+                </asp:GridView>
+                <asp:SqlDataSource ID="sql_ds_horario" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="select th.id_horario ,th.ci_doc ,(tp.nombres+' '+tp.primerApellido +' '+tp.segundoApellido )as docente, th.hora_inicio ,th.hora_fin,th.grupo,DATEDIFF(SS, th.hora_inicio, th.hora_fin) / 60 / 45 AS Hras_academica,th.dia,th.tipo_clase ,isnull(link_clase,'Sin Link') as link,isnull(a.nom_aula_lab,' ') as Aula ,td.fecha_creacion ,p.SiglaP,p.Materia,p.Sis_plan,th.gestion
 from tb_designacion td
  join tb_horario th on td.id_horario = th.id_horario 
  join tb_personal tp on th.ci_doc = tp.ci 
  join planes_estudios p on td.id_materia = p.id_plan 
 left join tb_aula a on th.aula = a.id_nomal 
-where th.ci_doc =@ci  and th.gestion='1-2025' and tp.gestion='1-2025' and a.gestion='1-2024'
+where th.ci_doc =@ci  and th.gestion='1-2026' and tp.gestion='1-2026' and a.gestion='1-2024'
 ORDER BY CASE WHEN th.dia = 'Lunes' THEN 1 WHEN th.dia='Martes' THEN 2 WHEN th.dia='Miercoles' THEN 3 WHEN th.dia='Jueves' THEN 4 WHEN th.dia='Viernes' THEN 5  WHEN th.dia='Sabado' THEN 6  END">
-                                     <SelectParameters>
-                                         <asp:ControlParameter ControlID="txt_ci" Name="ci" PropertyName="Text" />
-                                     </SelectParameters>
-                                 </asp:SqlDataSource>
-                                </div> 
-            </div> 
-         </div> 
+                    <SelectParameters>
+                        <asp:ControlParameter ControlID="txt_ci" Name="ci" PropertyName="Text" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+            </div>
+        </div>
+    </div>
 </asp:Content>
 
 

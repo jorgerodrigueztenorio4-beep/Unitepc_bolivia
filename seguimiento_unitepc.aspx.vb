@@ -11,31 +11,23 @@ Partial Class seguimiento_unitepc
         GridView2.DataBind()
 
         ipmarca = Request.ServerVariables("HTTP_X_FORWARDED_FOR")
-
-        'If String.IsNullOrEmpty(ipmarca) Then
         ipmarca = Request.ServerVariables("REMOTE_ADDR")
-        'txt_ip.Text = ipmarca
+
         lbl_ip.Text = "Registro realizaco desde la IP : " + ipmarca
         'End If
         If GridView2.Rows.Count > 0 Then
-            ' Page.ClientScript.RegisterStartupScript(Me.GetType(), "Scripts", "<script>alert('Ud. tiene marcado su ingreso y no su salida');window.location.href = ""seguimiento_cobija.aspx"";</script>")
+
             GridView2.Visible = True
             Button3.Visible = True
             Label1.Visible = True
             txt_observacines.Visible = True
             txt_tema_avance.Visible = True
             ddl_cantest.Visible = True
-
-
-
         ElseIf GridView2.Rows.Count <= 0 Then
             GridView1.DataBind()
             If GridView1.Rows.Count > 0 Then
                 Button1.Visible = True
-
                 Label3.Visible = True
-
-
             End If
             gv_horario.DataBind()
 
@@ -45,11 +37,6 @@ Partial Class seguimiento_unitepc
             lbl_avisos.Visible = True
 
         End If
-
-
-
-
-
     End Sub
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         gv_horaingresaantes.DataSource = sql_horaingreso
@@ -160,8 +147,9 @@ Partial Class seguimiento_unitepc
         ElseIf GridView1.Rows.Count <= 0 And GridView2.Rows.Count <= 0 Then
             'intento de marcado'
             sql_horaingreso.Insert()
-
+            'habilitar desp del 19 de octubre
             ClientScript.RegisterStartupScript(Me.GetType(), "mensaje", "<script>swal({title:""SEGUIMIENTO DOCENTE UNITEPC"", text:""No se encontro clases asignadas a esta hora para su persona, por favor revise su horario en la opcion (Horario del Docente) ubicado en el menu, lado izquierdo de la pantalla "", type: ""warning"" ,timer:15000}, function(){window.location.href = ""seguimiento_unitepc.aspx"";});</script>")
+            'ClientScript.RegisterStartupScript(Me.GetType(), "mensaje", "<script>swal({title:""SEGUIMIENTO DOCENTE UNITEPC"", text:""Por coordinacion, sus clases del 13 al 18 de octubre seran respaldadas me manera directa "", type: ""warning"" ,timer:15000}, function(){window.location.href = ""seguimiento_unitepc.aspx"";});</script>")
         End If
 
     End Sub
@@ -170,4 +158,6 @@ Partial Class seguimiento_unitepc
         gvreloj.DataBind()
 
     End Sub
+
+
 End Class

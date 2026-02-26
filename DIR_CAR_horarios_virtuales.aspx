@@ -47,9 +47,104 @@
                                 <asp:ListItem>1-2026</asp:ListItem>
                             </asp:DropDownList>
                             <asp:Button ID="Button1" CssClass="btn btn-outline-primary  form-control mt-1  " runat="server" Text="Exportar a Excel" Visible="False" />
-                            <asp:TextBox ID="txt_idhora" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txt_idhora" runat="server" Visible="False"></asp:TextBox>
+                            <asp:Label ID="lbl_contador" runat="server" Text=""></asp:Label>
+                            <%--  desde aqui esta bien 
+                                <div class="table-scroll">
 
-                            <asp:Label ID="lbl_contador" runat="server" Text="Label"></asp:Label>
+                                    <contenttemplate>
+                                        <asp:GridView
+                                            ID="gv_horarios_v"
+                                            runat="server"
+                                            CssClass="table table-hover table-sm mt-1"
+                                            AutoGenerateColumns="False"
+                                            DataSourceID="sql_virtuales"
+                                            OnRowCommand="gv_horarios_v_RowCommand"
+                                            DataKeyNames="id_horario"
+                                            Font-Size="9pt"
+                                            Font-Names="Consolas"
+                                            GridLines="None">
+
+                                            <Columns>
+                                                <asp:BoundField
+                                                    DataField="id_horario"
+                                                    HeaderText="Id."
+                                                    Visible="true" />
+
+                                                <asp:TemplateField HeaderText="Docente">
+                                                    <ItemTemplate>
+                                                        <div>
+                                                            <strong>Docente: <%# Eval("docente") %></strong><br />
+                                                            <strong>C.I.: <%# Eval("ci_doc") %></strong>
+                                                        </div>
+                                                    </ItemTemplate>
+                                                    <ItemStyle BackColor="#FFE6E6" />
+                                                </asp:TemplateField>
+
+
+                                                <asp:BoundField
+                                                    DataField="nom_aula_lab"
+                                                    HeaderText="Aula / Lab." />
+
+
+                                                <asp:BoundField
+                                                    DataField="grupo"
+                                                    HeaderText="Grupo" />
+
+                                                <asp:BoundField
+                                                    DataField="dia"
+                                                    HeaderText="Día" />
+
+                                                <asp:TemplateField HeaderText="Horario">
+                                                    <ItemTemplate>
+                                                        <span class="badge bg-info" style="font-size: 9pt; padding: 6px 10px;">
+                                                            <%# Eval("hora_inicio") %> - <%# Eval("hora_fin") %></span>
+                                                    </ItemTemplate>
+                                                    <ItemStyle HorizontalAlign="Center" />
+                                                </asp:TemplateField>
+
+                                                <asp:BoundField
+                                                    DataField="tipo_clase"
+                                                    HeaderText="Tipo de Clase">
+                                                    <ItemStyle BackColor="#E6FFE7" />
+                                                </asp:BoundField>
+
+
+                                                <asp:TemplateField HeaderText="Materia">
+                                                    <ItemTemplate>
+                                                        <div>
+                                                            <strong><%# Eval("Materia") %></strong><br />
+                                                            <%# Eval("SiglaP") %>
+                                                        </div>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+
+
+                                                <asp:BoundField
+                                                    DataField="Sis_plan"
+                                                    HeaderText="Plan" />
+
+
+                                                <asp:BoundField
+                                                    DataField="Column1"
+                                                    HeaderText="Común">
+                                                    <ItemStyle BackColor="#E6F1FF" />
+                                                </asp:BoundField>
+
+
+
+                                                <asp:BoundField
+                                                    DataField="gestion"
+                                                    HeaderText="Gestión" />
+
+                                            </Columns>
+
+                                            <HeaderStyle BackColor="#D4EDDA" ForeColor="#155724" />
+
+                                        </asp:GridView>
+                                    </contenttemplate>
+                                </div> HASTA aqui solo grilla de horario--%>
+
                             <div class="table-scroll">
                                 <asp:UpdatePanel ID="upHorarios" runat="server">
                                     <ContentTemplate>
@@ -96,8 +191,9 @@
                                                             CommandName="eliminar"
                                                             CommandArgument="<%# Container.DataItemIndex %>"
                                                             
-                                                            OnClientClick="return confirm('¿Está seguro de eliminar este registro?');" >
-                                                            <i class="fa fa-trash"></i>
+                                                            OnClientClick="return confirm('¿Está seguro de eliminar este registro?');"
+                                                             Visible ="false" >
+                                                            <i class="fas fa-trash"></i>
                                                             
                                                         </asp:LinkButton>
 
@@ -213,32 +309,10 @@ ORDER BY CASE WHEN th.dia = 'Lunes' THEN 1 WHEN th.dia='Martes' THEN 2 WHEN th.d
                                 </UpdateParameters>
                             </asp:SqlDataSource>
                             <asp:TextBox ID="txt_sigla_car" runat="server" Visible="False"></asp:TextBox>
-                            <asp:SqlDataSource ID="sql_ds_carrera" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="SELECT * FROM [tb_carreras]" DeleteCommand="delete tb_designacion where id_horario =@idhora" InsertCommand="INSERT INTO tb_bitacora_eliminacion
-(
-    id_horario,
-    id_designacion,
-    ci_delete,
-    date_delete,
-    carrera
-)
-VALUES
-(
-    @id_horario,
-    @id_designacion,
-    @ci_delete,
-    getdate(),
-    @carrera
-);
-">
+                            <asp:SqlDataSource ID="sql_ds_carrera" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="SELECT * FROM [tb_carreras]" DeleteCommand="delete tb_designacion where id_horario =@idhora">
                                 <DeleteParameters>
                                     <asp:ControlParameter ControlID="txt_idhora" Name="idhora" PropertyName="Text" />
                                 </DeleteParameters>
-                                <InsertParameters>
-                                    <asp:ControlParameter ControlID="txt_idhora" Name="id_horario" PropertyName="Text" />
-                                    <asp:ControlParameter ControlID="txt_idhora" Name="id_designacion" PropertyName="Text" />
-                                    <asp:ControlParameter ControlID="txt_sigla_car" Name="ci_delete" PropertyName="Text" />
-                                    <asp:ControlParameter ControlID="txt_sigla_car" Name="carrera" PropertyName="Text" />
-                                </InsertParameters>
                             </asp:SqlDataSource>
                             <asp:TextBox ID="txt_sede" runat="server" Visible="False"></asp:TextBox>
 
@@ -289,7 +363,7 @@ VALUES
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h5 class="modal-title">Detalle Horario completo mas las Comunes</h5>
+                    <h5 class="modal-title">Detalle Completo del Horario y Clases Comunes</h5>
                     <button type="button" class="close" data-dismiss="modal">
                         <span>&times;</span>
                     </button>

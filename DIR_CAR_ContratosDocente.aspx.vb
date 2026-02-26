@@ -93,17 +93,65 @@ Partial Class DIR_CAR_ContratosDocente
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         ' Forzamos a que el GridView de horarios tenga los datos actualizados antes de empezar
         GV_HORARIOS.DataSource = SQL_DS_HORARIO
+
+        If TextBox1.Text = "1" Then
+            TextBox1.Text = "1"
+        End If
+
+        If TextBox1.Text = "3" Then
+            TextBox1.Text = "3"
+        End If
+
+        If TextBox1.Text = "4" Then
+            TextBox1.Text = "9"
+        End If
+
+        If TextBox1.Text = "5" Then
+            TextBox1.Text = "5"
+        End If
+
+        If TextBox1.Text = "6" Then
+            TextBox1.Text = "4"
+        End If
+
+        If TextBox1.Text = "8" Then
+            TextBox1.Text = "6"
+        End If
+
+        If TextBox1.Text = "9" Then
+            TextBox1.Text = "7"
+        End If
+
+        If TextBox1.Text = "12" Then
+            TextBox1.Text = "12"
+        End If
+
+
         GV_HORARIOS.DataBind()
+
+
+
 
         Dim ds As DataSet = WSEBSE.RRHHListaDeDocentes2023()
         Dim dt As DataTable = ds.Tables(0)
         Dim dv As New DataView(dt)
 
-        'dv.RowFilter = "Sede = " & TextBox1.Text & " AND CodCarre = '" & TextBox2.Text & "'"
-        dv.RowFilter = "Sede = '4' AND CodCarre = 'CARder'"
+        dv.RowFilter = "Sede = " & TextBox1.Text & " AND CodCarre = '" & TextBox2.Text & "'"
+        'dv.RowFilter = "Sede = '1' AND CodCarre = 'carico'"
 
         gv_contratos.DataSource = dv
         gv_contratos.DataBind()
+
+
+
+
+
+
+
+
+
+
+
 
         Dim totalFilas As Integer = gv_contratos.Rows.Count
 
@@ -117,8 +165,9 @@ Partial Class DIR_CAR_ContratosDocente
             ' El porcentaje es para control interno, el JS se encarga de lo visual
             For filash As Integer = 0 To GV_HORARIOS.Rows.Count - 1
                 ' Tus validaciones de celdas...
-                If gv_contratos.Rows(filas).Cells(5).Text = GV_HORARIOS.Rows(filash).Cells(6).Text + "1" Then
-                    If gv_contratos.Rows(filas).Cells(8).Text = GV_HORARIOS.Rows(filash).Cells(12).Text Then
+                ' If gv_contratos.Rows(filas).Cells(5).Text = GV_HORARIOS.Rows(filash).Cells(6).Text + "1" Then
+               If gv_contratos.Rows(filas).Cells(5).Text = GV_HORARIOS.Rows(filash).Cells(6).Text + "1" Then
+                If gv_contratos.Rows(filas).Cells(8).Text = GV_HORARIOS.Rows(filash).Cells(12).Text Then
                         If RTrim(gv_contratos.Rows(filas).Cells(6).Text) = GV_HORARIOS.Rows(filash).Cells(8).Text Then
                             If gv_contratos.Rows(filas).Cells(9).Text = GV_HORARIOS.Rows(filash).Cells(9).Text Then
                                 If gv_contratos.Rows(filas).Cells(10).Text = GV_HORARIOS.Rows(filash).Cells(5).Text Then
@@ -155,5 +204,9 @@ Partial Class DIR_CAR_ContratosDocente
             TextBox2.Text = Session("siglacar") & "1"
             TextBox3.Text = Session("siglacar")
         End If
+
+
     End Sub
+
+
 End Class

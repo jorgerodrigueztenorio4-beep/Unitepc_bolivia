@@ -177,7 +177,7 @@ Partial Class sesion
                 Session("rol_nombre") = Me.GridView1.Rows(0).Cells(8).Text
 
 
-                Response.Redirect("~/RR_HH_ultima_lista3.aspx")
+                Response.Redirect("~/RR_HH_Lista_Horarios_x_carrea.aspx")
             Else
                 Me.Label1.Visible = True
             End If

@@ -414,7 +414,7 @@ where  designado='No' and th.gestion ='2-2022'"></asp:SqlDataSource>
       <asp:TextBox ID="txt_hrafin" runat="server" Visible="False"></asp:TextBox>
            <asp:TextBox ID="txt_sigla_carrera" runat="server" Visible="False"></asp:TextBox>
            
-           <asp:SqlDataSource ID="sql_ds_horario" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" InsertCommand="INSERT INTO tb_horario(gestion, tipo_clase, hora_inicio, hora_fin, grupo, dia, link_clase, bloque, aula, fecha_registro, ci_usuario, sede, designado, ci_doc) VALUES ('2-2022', @tipoclase, @hini, @hrfin, @grupo, @dia, @linkclase, @bloque, @aula, GETDATE(), @ciusuario, @sede, 'No', '0')" ProviderName="<%$ ConnectionStrings:unitepc_boliviaConnectionString.ProviderName %>">
+           <asp:SqlDataSource ID="sql_ds_horario" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" InsertCommand="INSERT INTO tb_horario(gestion, tipo_clase, hora_inicio, hora_fin, grupo, dia, link_clase, bloque, aula, fecha_registro, ci_usuario, sede, designado, ci_doc) VALUES ('2-2025', @tipoclase, @hini, @hrfin, @grupo, @dia, @linkclase, @bloque, @aula, GETDATE(), @ciusuario, @sede, 'No', '0')" ProviderName="<%$ ConnectionStrings:unitepc_boliviaConnectionString.ProviderName %>">
                <InsertParameters>
                    <asp:ControlParameter ControlID="ddl_tipo_clase" Name="tipoclase" PropertyName="SelectedValue" />
                    <asp:ControlParameter ControlID="txt_hora_ini" Name="hini" PropertyName="Text" />

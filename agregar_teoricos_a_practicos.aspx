@@ -12,7 +12,12 @@
         <div>
             <table style="width: 100%;">
                 <tr>
-                    <td>Proyeciones<asp:Button ID="Button1" runat="server" Text="Button" /><asp:TextBox ID="txt_gteo" runat="server"></asp:TextBox> <asp:TextBox ID="txt_id_horario" runat="server"></asp:TextBox></td>
+                    <td>Proyeciones<asp:Button ID="Button1" runat="server" Text="Button" /><asp:TextBox ID="txt_gteo" runat="server"></asp:TextBox> <asp:TextBox ID="txt_id_horario" runat="server"></asp:TextBox>
+                        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="sql_sedes" DataTextField="NombreSede" DataValueField="idSede" AutoPostBack="True">
+                        </asp:DropDownList>
+                        <asp:TextBox ID="txt_carrera" placeholder="Carrrera" runat="server"></asp:TextBox>
+                        <asp:SqlDataSource ID="sql_sedes" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="SELECT * FROM [tb_sedes]"></asp:SqlDataSource>
+                    </td>
                     <td>horarios</td>
                     
                 </tr>
@@ -68,8 +73,15 @@ OUTER APPLY
     CROSS APPLY xml_data.nodes('/i') AS n(nodo)
 ) n
 WHERE t.gestion = '1-2026'
+and sede=@sede
+and materia like'%'+@carrea+'%'
 ORDER BY t.materia, t.sede,T.grupos 
-"></asp:SqlDataSource>
+">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="DropDownList1" Name="sede" PropertyName="SelectedValue" />
+                                <asp:ControlParameter ControlID="txt_carrera" Name="carrea" PropertyName="Text" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
                     </td>
                     <td style="vertical-align: top;">
                         <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="sql_clases">
@@ -88,7 +100,12 @@ from tb_designacion td
  join tb_personal tp on th.ci_doc = tp.ci 
  join planes_estudios p on td.id_materia = p.id_plan
  join tb_aula a on th.aula = a.id_nomal  
-where th.gestion ='1-2026' and tp.gestion ='1-2026'  and a.gestion ='1-2024'and th.tipo_clase='practico'" UpdateCommand="UPDATE tb_horario SET clase_teorica = @clasteo WHERE (id_horario = @idhorario)">
+where th.gestion ='1-2026' and tp.gestion ='1-2026'  and a.gestion ='1-2024'and th.tipo_clase='practico' and th.sede=@sede
+and SiglaP like '%'+@carrera+'%'" UpdateCommand="UPDATE tb_horario SET clase_teorica = @clasteo WHERE (id_horario = @idhorario)">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="DropDownList1" Name="sede" PropertyName="SelectedValue" />
+                                <asp:ControlParameter ControlID="txt_carrera" Name="carrera" PropertyName="Text" />
+                            </SelectParameters>
                             <UpdateParameters>
                                 <asp:ControlParameter ControlID="txt_gteo" Name="clasteo" PropertyName="Text" />
                                 <asp:ControlParameter ControlID="txt_id_horario" Name="idhorario" PropertyName="Text" />

@@ -56,7 +56,7 @@ join planes_estudios p on td.id_materia = p.id_plan
 join tb_personal tp on th.ci_doc = tp.ci 
 join tb_carreras tc on p.codcar =tc.CARSIGLA  
 join tb_aula ta on th.aula = ta.id_nomal
-where th.gestion ='1-2025' and th.bloque =@bloque and th.dia =@dia and tp.gestion ='1-2025' and ta.gestion='1-2024'
+where th.gestion ='1-2026' and th.bloque =@bloque and th.dia =@dia and tp.gestion ='1-2026' and ta.gestion='1-2024'
 ORDER BY CASE WHEN th.dia = 'Lunes' THEN 1 WHEN th.dia='Martes' THEN 2 WHEN th.dia='Miercoles' THEN 3 WHEN th.dia='Jueves' THEN 4 WHEN th.dia='Viernes' THEN 5  WHEN th.dia='Sabado' THEN 6  END , hora_inicio ">
                                     <SelectParameters>
                                         <asp:ControlParameter ControlID="ddl_bloque" Name="bloque" PropertyName="SelectedValue" />

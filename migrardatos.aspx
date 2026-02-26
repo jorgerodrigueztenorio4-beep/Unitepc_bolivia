@@ -63,7 +63,7 @@ SELECT IDENT_CURRENT ('tb_horario') AS Current_Identity;
                             <asp:BoundField DataField="estado_clase" HeaderText="estado_clase" SortExpression="estado_clase" />
                         </Columns>
                     </asp:GridView>
-                    <asp:SqlDataSource ID="sql_ds_horario" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="SELECT * FROM [tb_horario] WHERE ([gestion] = @gestion)" InsertCommand="INSERT INTO tb_horario(sede, gestion, tipo_clase, hora_inicio, hora_fin, ci_doc, grupo, dia, bloque, aula, designado) VALUES (@sede, '2-2024', @tipoclase, @hrainicio, @hrafin, '0', @grupo, @dia, @bloque, '', @designado)" DeleteCommand="DELETE FROM tb_horario WHERE (id_horario = @id_horario)">
+                    <asp:SqlDataSource ID="sql_ds_horario" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="SELECT * FROM [tb_horario] WHERE ([gestion] = @gestion)" InsertCommand="INSERT INTO tb_horario(sede, gestion, tipo_clase, hora_inicio, hora_fin, ci_doc, grupo, dia, bloque, aula, designado,fecha_registro,estado_clase) VALUES (@sede, '1-2026', @tipoclase, @hrainicio, @hrafin, '0', @grupo, @dia, @bloque, @aula, @designado,getdate(),'migradopara1-2026')" DeleteCommand="DELETE FROM tb_horario WHERE (id_horario = @id_horario)">
                         <DeleteParameters>
                             <asp:ControlParameter ControlID="txt_id_horario" Name="id_horario" PropertyName="Text" />
                         </DeleteParameters>
@@ -76,9 +76,10 @@ SELECT IDENT_CURRENT ('tb_horario') AS Current_Identity;
                             <asp:ControlParameter ControlID="txt_dia" Name="dia" PropertyName="Text" />
                             <asp:ControlParameter ControlID="txt_bloque" Name="bloque" PropertyName="Text" />
                             <asp:ControlParameter ControlID="txt_designado" Name="designado" PropertyName="Text" />
+                            <asp:ControlParameter ControlID="txt_aula" Name="aula" PropertyName="Text" />
                         </InsertParameters>
                         <SelectParameters>
-                            <asp:Parameter DefaultValue="2-2024" Name="gestion" Type="String" />
+                            <asp:Parameter DefaultValue="2-2025" Name="gestion" Type="String" />
                         </SelectParameters>
                     </asp:SqlDataSource>
                 </div>
@@ -131,7 +132,7 @@ SELECT IDENT_CURRENT ('tb_horario') AS Current_Identity;
                     </Columns>
                 </asp:GridView>
 
-                <asp:SqlDataSource ID="sql_designacion" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="SELECT id_designacion, id_horario, id_materia, fecha_creacion, id_sede, plan_est, horas, comun, carrera FROM tb_designacion WHERE (id_horario = @idhorario)" InsertCommand="INSERT INTO tb_designacion(id_horario, id_materia, id_sede, plan_est, horas, comun, carrera) VALUES (@idhorario, @idmateria, @id_sede, @planest, @horas, @comun, @carrera)" DeleteCommand="DELETE FROM tb_designacion WHERE (id_horario = @idhorario)">
+                <asp:SqlDataSource ID="sql_designacion" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="SELECT id_designacion, id_horario, id_materia, fecha_creacion, id_sede, plan_est, horas, comun, carrera FROM tb_designacion WHERE (id_horario = @idhorario)" InsertCommand="INSERT INTO tb_designacion(id_horario, id_materia, id_sede, plan_est, horas, comun, carrera,fecha_creacion) VALUES (@idhorario, @idmateria, @id_sede, @planest, @horas, @comun, @carrera,getdate())" DeleteCommand="DELETE FROM tb_designacion WHERE (id_horario = @idhorario)">
                     <DeleteParameters>
                         <asp:ControlParameter ControlID="txt_id_horario" Name="idhorario" PropertyName="Text" />
                     </DeleteParameters>

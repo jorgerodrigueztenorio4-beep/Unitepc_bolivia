@@ -3,12 +3,11 @@ Imports System.Data
 Imports System.Web.UI.WebControls
 Imports System
 Imports CrystalDecisions.Shared
-Imports System.Reflection
 
 Partial Class DIR_CAR_Reportes_respaldos
     Inherits System.Web.UI.Page
     Dim ds As New ds_reporte_horas
-    'Public rptdocumento As New CrystalDecisions.CrystalReports.Engine.ReportDocument
+    Public rptdocumento As New CrystalDecisions.CrystalReports.Engine.ReportDocument
     Public suma As Double = 0
     Public suma2 As Double = 0
 
@@ -85,17 +84,17 @@ Partial Class DIR_CAR_Reportes_respaldos
         srtreportpatch = Server.MapPath("~/reporte_respaldos.rpt")
         If Not IO.File.Exists(srtreportpatch) Then Throw (New Exception("no se encuentra el archivo:" & vbCrLf & srtreportpatch))
 
-        'rptdocumento.Load(srtreportpatch)
-        'rptdocumento.SetDataSource(ds)
-        'rptdocumento.SetParameterValue("fechaini", txt_fini.Text)
-        'rptdocumento.SetParameterValue("fechafin", txt_ffin.Text)
-        'rptdocumento.SetParameterValue("horasgral", txt_sumas.Text)
-        'rptdocumento.SetParameterValue("nombre", ddl_docente.SelectedItem.Text)
-        'rptdocumento.SetParameterValue("carrera", txt_siglacar.Text) 'tipo_respaldo
-        'rptdocumento.SetParameterValue("tipo_respaldo", "Clases")
+        rptdocumento.Load(srtreportpatch)
+        rptdocumento.SetDataSource(ds)
+        rptdocumento.SetParameterValue("fechaini", txt_fini.Text)
+        rptdocumento.SetParameterValue("fechafin", txt_ffin.Text)
+        rptdocumento.SetParameterValue("horasgral", txt_sumas.Text)
+        rptdocumento.SetParameterValue("nombre", ddl_docente.SelectedItem.Text)
+        rptdocumento.SetParameterValue("carrera", txt_siglacar.Text) 'tipo_respaldo
+        rptdocumento.SetParameterValue("tipo_respaldo", "Clases")
 
 
-        'rptdocumento.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, True, ddl_docente.SelectedItem.Text)
+        rptdocumento.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, True, ddl_docente.SelectedItem.Text)
 
         'Me.CrystalReportViewer1.ReportSource = rptdocumento
         'Me.CrystalReportViewer1.Visible = True
@@ -106,17 +105,11 @@ Partial Class DIR_CAR_Reportes_respaldos
     End Sub
 
     Protected Sub GridView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridView1.SelectedIndexChanged
-        Dim ciDoc As String = GridView1.DataKeys(GridView1.SelectedIndex).Value.ToString()
-
-        ' Guardar en sesión
-        Session("ci_doc") = ciDoc
-
-        ' Mostrar en label del modal
-        lblCiDoc.Text = ciDoc
-
-        ' Abrir el modal después del postback
-        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "ShowModal", "$('#miModal').modal('show');", True)
 
     End Sub
 
+    'Protected Sub ddl_carrera_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddl_carrera.SelectedIndexChanged
+    '    ddl_docente.DataBind()
+
+    'End Sub
 End Class

@@ -16,6 +16,7 @@
                 <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary " Text="Obtener Contratos" />
                 <asp:Button ID="Button2" runat="server" Text="buscar DATOS" Visible="false" />
                 <asp:Button ID="Button3" runat="server" CssClass="btn btn-success" Text="Asignar a Horarios" Visible="false" />
+                <asp:Button ID="Button4" runat="server" CssClass="btn btn-warning " Text="Levantar Servicios" />
 
 
 
@@ -41,7 +42,11 @@
 JOIN tb_designacion D ON D.id_horario = H.id_horario 
 JOIN planes_estudios P ON D.id_materia  = P.id_plan 
 join tb_sedes s on h.sede =s.idSede 
-WHERE H.gestion = '1-2026'  "></asp:SqlDataSource>
+WHERE H.gestion = '1-2026'  " UpdateCommand="update tb_designacion 
+set cant_proyec ='0'
+where cant_proyec is null 
+and fecha_creacion &gt;= '2026-01-01'
+  AND fecha_creacion &lt;  '2027-01-01';"></asp:SqlDataSource>
 
             </div>
 

@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="DIR_ACD_asistencia_dia_hoy.aspx.vb" Inherits="DIR_ACD_asistencia_dia_hoy" MasterPageFile="~/mp_dir_academico.master" %>
 
 <asp:Content ID="Content1" runat="server" contentplaceholderid="ContentPlaceHolder1">
-    <form runat ="server"  >
+   
    
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -69,13 +69,13 @@
 
                    <asp:SqlDataSource ID="sql_ds_asistencia_hoy" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="select ci_doc ,(p.nombres +' '+p.primerApellido +' '+p.segundoApellido ) as docente,carrera ,Materia ,sigla_materia,grupo,tipo_clase ,hra_inicio,hra_fin ,hr_ingreso ,hr_salida ,isnull(observaciones ,'Clases en Curso o Por Cursar') as observaciones  from tb_ing_sal i
 join tb_personal p on i.ci_doc = p.ci 
-where p.gestion ='1-2025' and CONVERT(varchar,hora_registro,103) =CONVERT(varchar,getdate(),103) and sede =@sede and carrera =@carrera
+where p.gestion ='2-2025' and CONVERT(varchar,hora_registro,103) =CONVERT(varchar,getdate(),103) and sede =@sede and carrera =@carrera
 
 and i.dia =(SELECT (CASE DATENAME(dw,getdate())
     when 'Lunes' then 'Lunes'
      when 'Martes' then 'Martes'
      when 'Miércoles' then 'Miercoles'
-     when 'Jueves' then 'Jueves'
+     when 'Thursday' then 'Jueves'
      when 'Viernes' then 'Viernes'
      when 'Sábado' then 'Sabado'
      when 'Domingo' then 'Domingo'

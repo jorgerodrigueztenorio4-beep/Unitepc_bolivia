@@ -11,7 +11,7 @@
             
                             <div class="col-md-12 p-3 mb-2 bg-white text-white border border-dark rounded ">
                               <div style="background-color:#FFCC00" class="text-md-center  rounded text-bold " role="alert">
-                               Lista de Horarios Gestion 1-2024
+                               Lista de Horarios
                             </div>
                                  <div class="input-group mb-1">
 
@@ -139,9 +139,9 @@
         </asp:TemplateField>
 
        
-        <asp:BoundField 
+    <%--    <asp:BoundField 
             DataField="Sis_plan" 
-            HeaderText="Plan" />
+            HeaderText="Plan" />--%>
 
        
         <asp:BoundField 

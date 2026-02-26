@@ -46,7 +46,7 @@
 JOIN tb_designacion D ON D.id_horario = H.id_horario 
 JOIN planes_estudios P ON D.id_materia  = P.id_plan 
 join tb_sedes s on h.sede =s.idSede 
-WHERE H.gestion = '1-2025'  "></asp:SqlDataSource>
+WHERE H.gestion = '2-2025'  "></asp:SqlDataSource>
                                 </div>
             </div>
          </div>
@@ -63,7 +63,7 @@ WHERE H.gestion = '1-2025'  "></asp:SqlDataSource>
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="sql_ds_existe" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" InsertCommand="INSERT INTO tb_personal(nombres, primerApellido, segundoApellido, ci, gestion, fecha_registro) VALUES (@nombre, @ppa, @sap, @ci, '1-2024', GETDATE())" SelectCommand="select ci from tb_personal 
-where ci=@ci and gestion ='1-2025'" UpdateCommand="UPDATE tb_horario SET ci_doc = @ci WHERE (id_horario = @idhorario)">
+where ci=@ci and gestion ='2-2025'" UpdateCommand="UPDATE tb_horario SET ci_doc = @ci WHERE (id_horario = @idhorario)">
             <InsertParameters>
                 <asp:ControlParameter ControlID="txt_nombre" Name="nombre" PropertyName="Text" />
                 <asp:ControlParameter ControlID="txt_ppa" Name="ppa" PropertyName="Text" />

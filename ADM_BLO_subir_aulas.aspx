@@ -76,7 +76,7 @@
                                 <asp:GridView ID="gv_aulas" CssClass ="table table-hover mt-1 " runat="server" AutoGenerateColumns="False" DataSourceID="sql_ds_aulas" Font-Size="9pt" DataKeyNames="id_nomal" Font-Names="Consolas" GridLines="None">
                                     <Columns>
                                         <asp:CommandField ShowEditButton="True" ButtonType="Button" ControlStyle-CssClass="btn btn-primary" />
-                                        <asp:BoundField DataField="id_nomal" HeaderText="Id." InsertVisible="False" ReadOnly="True" SortExpression="id_nomal" Visible="false" />
+                                        <asp:BoundField DataField="id_nomal" HeaderText="Id." InsertVisible="False" ReadOnly="True" SortExpression="id_nomal" Visible="true" />
                                         <asp:BoundField DataField="nom_aula_lab" HeaderText="Nombre del Ambiente" SortExpression="nom_aula_lab" ReadOnly="True" />
                                         <asp:BoundField DataField="capacidad" HeaderText="Capacidad" SortExpression="capacidad"  />
                                         <asp:BoundField DataField="dimenciones" HeaderText="Superficie" SortExpression="dimenciones" ReadOnly="True" />

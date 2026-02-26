@@ -9,7 +9,6 @@ Partial Class DAF_NAL_con_sin_docente_detallado
 
         If gv_con_doc.Rows.Count > 0 Then
             lbl_condoc.Text = gv_con_doc.Rows.Count
-            lbl_con_doc.Text = gv_con_doc.Rows.Count
             Button2.Visible = True
 
         Else
@@ -19,7 +18,6 @@ Partial Class DAF_NAL_con_sin_docente_detallado
 
         If GridView1.Rows.Count > 0 Then
             lbl_sin_doc.Text = GridView1.Rows.Count
-            lbl_sindoc.Text = GridView1.Rows.Count
             Button1.Visible = True
 
         Else

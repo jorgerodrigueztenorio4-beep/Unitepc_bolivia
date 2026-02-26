@@ -36,7 +36,25 @@ Partial Class ENC_LAB_horario_por_bloque
     End Sub
 
 
+    Protected Sub ddlDiaHeader_SelectedIndexChanged(sender As Object, e As EventArgs)
 
+        Dim ddl As DropDownList = CType(sender, DropDownList)
+        Dim dia As String = ddl.SelectedValue
+
+        sql_ds_horario.SelectParameters.Clear()
+
+        If dia = "" Then
+            sql_ds_horario.SelectCommand =
+                "SELECT * FROM tb_horario"
+        Else
+            sql_ds_horario.SelectCommand =
+                "SELECT * FROM tb_horario WHERE h.dia = @dia"
+            sql_ds_horario.SelectParameters.Add("dia", dia)
+        End If
+
+        GridView1.DataBind()
+
+    End Sub
 
 End Class
 

@@ -34,7 +34,7 @@
 join tb_designacion td on th.id_horario = td.id_horario
 join planes_estudios p on td.id_materia = p.id_plan 
 join tb_personal tp on th.ci_doc = tp.ci 
-where th.sede =@sede and p.codcar =@sigcar   and th.gestion ='2-2025' and tp.gestion ='2-2025'    group by nombres ,primerApellido,segundoApellido,ci_doc order by docente">
+where th.sede =@sede and p.codcar =@sigcar   and th.gestion ='1-2026' and tp.gestion ='1-2026'    group by nombres ,primerApellido,segundoApellido,ci_doc order by docente">
                                     <SelectParameters>
                                         <asp:ControlParameter ControlID="ddl_sede" Name="sede" PropertyName="SelectedValue" />
                                         <asp:ControlParameter ControlID="ddl_carrera" Name="sigcar" PropertyName="SelectedValue" />

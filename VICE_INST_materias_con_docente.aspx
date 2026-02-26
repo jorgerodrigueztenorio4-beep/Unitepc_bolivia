@@ -71,7 +71,7 @@
                     <asp:SqlDataSource ID="sql_ds_con_mat" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="select h.hora_inicio ,h.hora_fin ,h.grupo ,h.ci_doc ,p.Materia,h.dia ,h.gestion   from tb_horario h
 join tb_designacion d on h.id_horario = d.id_horario 
 join planes_estudios p on d.id_materia = p.id_plan 
-where h.ci_doc &lt;&gt;'0' and h.gestion ='1-2025' and h.sede =@sede and p.codcar =@car">
+where h.ci_doc &lt;&gt;'0' and h.gestion ='2-2025' and h.sede =@sede and p.codcar =@car">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="ddl_sede" Name="sede" PropertyName="SelectedValue" />
                             <asp:ControlParameter ControlID="ddl_carrera" Name="car" PropertyName="SelectedValue" />
@@ -137,7 +137,7 @@ where h.ci_doc &lt;&gt;'0' and h.gestion ='1-2025' and h.sede =@sede and p.codca
                     <asp:SqlDataSource ID="sql_ds_sin_mat" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="select h.hora_inicio ,h.hora_fin ,h.grupo ,h.ci_doc ,p.Materia,h.dia ,h.gestion   from tb_horario h
 join tb_designacion d on h.id_horario = d.id_horario 
 join planes_estudios p on d.id_materia = p.id_plan 
-where h.ci_doc ='0' and h.gestion ='1-2025' and h.sede =@sede and p.codcar =@car">
+where h.ci_doc ='0' and h.gestion ='2-2025' and h.sede =@sede and p.codcar =@car">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="ddl_sede" Name="sede" PropertyName="SelectedValue" />
                             <asp:ControlParameter ControlID="ddl_carrera" Name="car" PropertyName="SelectedValue" />

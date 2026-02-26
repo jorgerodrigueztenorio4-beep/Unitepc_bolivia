@@ -38,9 +38,9 @@
                   
                <asp:TextBox ID="txt_fecha" type="date" runat="server" CssClass ="form-control mt-1 " AutoPostBack="True"></asp:TextBox>
             <asp:Label ID="Label1" runat="server"  Visible="false"></asp:Label>
-                  <asp:TextBox ID="txt_fecha_hora" runat="server" Visible="false" ></asp:TextBox>
+                  <asp:TextBox ID="txt_fecha_hora" runat="server" Visible="true" ></asp:TextBox>
            
-
+                     <asp:TextBox ID="txt_idhr" runat="server" ></asp:TextBox>
                   <asp:GridView ID="gv_clases" 
     CssClass="table-hover table" 
     runat="server" 
@@ -97,7 +97,7 @@
 
 
             <asp:SqlDataSource ID="sql_ds_clase" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="SELECT th.id_horario, th.ci_doc, REPLACE(tp.nombres + ' ' + tp.primerApellido + ' ' + tp.segundoApellido, 'a a a', '--* Sin Asignar Docente *--') AS docente, a.nom_aula_lab, th.hora_inicio, th.hora_fin, th.dia, th.tipo_clase, p.SiglaP, p.Materia, p.Sis_plan, ISNULL(td.comun, 'No es Comun') AS Expr1, th.grupo, th.gestion
- FROM tb_designacion AS td INNER JOIN tb_horario AS th ON td.id_horario = th.id_horario INNER JOIN tb_personal AS tp ON th.ci_doc = tp.ci INNER JOIN planes_estudios AS p ON td.id_materia = p.id_plan INNER JOIN tb_aula AS a ON th.aula = a.id_nomal WHERE (td.carrera = @siglacar) AND (th.gestion = '2-2025') AND (tp.gestion = '2-2025') AND (th.sede = @sede) AND (a.gestion = '1-2024') AND (th.dia = @dia)
+ FROM tb_designacion AS td INNER JOIN tb_horario AS th ON td.id_horario = th.id_horario INNER JOIN tb_personal AS tp ON th.ci_doc = tp.ci INNER JOIN planes_estudios AS p ON td.id_materia = p.id_plan INNER JOIN tb_aula AS a ON th.aula = a.id_nomal WHERE (td.carrera = @siglacar) AND (th.gestion = '1-2026') AND (tp.gestion = '1-2026') AND (th.sede = @sede) AND (a.gestion = '1-2024') AND (th.dia = @dia)
  ORDER BY CASE WHEN th.dia = 'Lunes' THEN 1 WHEN th.dia = 'Martes' THEN 2 WHEN th.dia = 'Miercoles' THEN 3 WHEN th.dia = 'Jueves' THEN 4 WHEN th.dia = 'Viernes' THEN 5 WHEN th.dia = 'Sabado' THEN 6 END, th.hora_inicio" InsertCommand="insert into tb_ing_sal (ci_doc ,Materia ,carrera ,aula_o_lab ,id_horario ,sede ,sigla_materia ,tipo_clase ,hra_inicio ,hra_fin ,grupo ,dia ,gestion,horas,hora_registro,hr_ingreso ,hr_salida ,observaciones )
 select  th.ci_doc  ,p.Materia ,tc.CARSIGLA  ,ta.nom_aula_lab,th.id_horario,th.sede ,p.SiglaP,th.tipo_clase ,th.hora_inicio ,th.hora_fin,th.grupo ,th.dia ,th.gestion ,td.horas,getdate(),@hrain,@hrafin,'No Asistio a Clases'
 from tb_designacion td
@@ -106,7 +106,7 @@ join tb_aula ta on th.aula = ta.id_nomal
 join tb_personal tp on th.ci_doc = tp.ci 
 join planes_estudios p on td.id_materia = p.id_plan
 join tb_carreras tc on p.codcar = tc.CARSIGLA
-where   th.gestion ='2-2025'  and td.horas &lt;&gt;'0'    and tp.gestion ='2-2025'  and ta.gestion ='1-2024' and th.id_horario =@idhora">
+where   th.gestion ='1-2026'  and td.horas &lt;&gt;'0'    and tp.gestion ='1-2026'  and ta.gestion ='1-2024' and th.id_horario =@idhora">
 
                 <InsertParameters>
                     <asp:ControlParameter ControlID="txt_fecha_hora" Name="hrain" PropertyName="Text" Type="DateTime" />
@@ -163,7 +163,7 @@ where   th.gestion ='2-2025'  and td.horas &lt;&gt;'0'    and tp.gestion ='2-202
            
         </div>
              
-                   <asp:TextBox ID="txt_idhr" runat="server" Visible ="false" ></asp:TextBox>
+                
                   <asp:TextBox ID="txt_sigla_carrera" runat="server" Visible ="false" ></asp:TextBox>
                   <asp:TextBox ID="txt_id_sede" runat="server" Visible ="false" ></asp:TextBox>
     </form>

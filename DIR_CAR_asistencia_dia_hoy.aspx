@@ -36,7 +36,7 @@
               <div class="card-body">
                <div class="chart">
                     
-                   <asp:GridView ID="gv_clases_todo" runat="server" CssClass ="table table-hover mt-1 " HeaderStyle-CssClass ="DataGridFixedHeader"  AutoGenerateColumns="False" DataSourceID="sql_ds_asistencia_hoy" Font-Size="9pt" Font-Names="Consolas" GridLines="None">
+                  <%-- <asp:GridView ID="gv_clases_todo" runat="server" CssClass ="table table-hover mt-1 " HeaderStyle-CssClass ="DataGridFixedHeader"  AutoGenerateColumns="False" DataSourceID="sql_ds_asistencia_hoy" Font-Size="9pt" Font-Names="Consolas" GridLines="None">
                        <Columns>
                            <asp:BoundField DataField="ci_doc" HeaderText="C.I." SortExpression="ci_doc" />
                            <asp:BoundField DataField="docente" HeaderText="Docente" ReadOnly="True" SortExpression="docente" />
@@ -56,15 +56,81 @@
                            </asp:BoundField>
                        </Columns>
                        <HeaderStyle HorizontalAlign="Center" />
-                   </asp:GridView>
+                   </asp:GridView>--%>
                   
-                    
+                    <asp:GridView ID="gv_clases_todo" runat="server"
+    CssClass="table table-hover mt-1"
+    HeaderStyle-CssClass="DataGridFixedHeader"
+    AutoGenerateColumns="False"
+    DataSourceID="sql_ds_asistencia_hoy"
+    Font-Size="9pt"
+    Font-Names="Consolas"
+    GridLines="None">
+
+    <Columns>
+
+    
+        <asp:TemplateField HeaderText="Docente">
+            <ItemTemplate>
+                <div>
+                    <strong>Docente : <%# Eval("docente") %></strong><br />
+                    <span class="text-muted">CI: <%# Eval("ci_doc") %></span>
+                </div>
+            </ItemTemplate>
+        </asp:TemplateField>
+
+        
+        <asp:BoundField DataField="carrera" HeaderText="Carrera" />
+
+        
+        <asp:TemplateField HeaderText="Materia">
+            <ItemTemplate>
+                <strong>Materia : <%# Eval("Materia") %></strong><br />
+                <small class="text-muted">Sigla : <%# Eval("sigla_materia") %></small>
+            </ItemTemplate>
+            <ItemStyle  VerticalAlign="Middle" />
+        </asp:TemplateField>
+
+      
+        <asp:BoundField DataField="grupo" HeaderText="Grupo" />
+
+       
+        <asp:BoundField DataField="tipo_clase" HeaderText="Tipo de Clase" />
+
+        <asp:TemplateField HeaderText="Horario Programado">
+            <ItemTemplate>
+                <span class="badge badge-info" style="font-size: 12px">
+                    <%# Eval("hra_inicio") %> - <%# Eval("hra_fin") %>
+                </span>
+            </ItemTemplate>
+            <ItemStyle HorizontalAlign="Center" />
+        </asp:TemplateField>
+
+        <asp:TemplateField HeaderText="Horario Ejecutado">
+    <ItemTemplate>
+        <span class="badge badge-success" style="font-size: 12px">
+            <%# String.Format("{0:HH:mm}", Eval("hr_ingreso")) %> - <%# String.Format("{0:HH:mm}", Eval("hr_salida")) %>
+        </span>
+    </ItemTemplate>
+    <ItemStyle HorizontalAlign="Center" />
+</asp:TemplateField>
+
+        <asp:BoundField DataField="observaciones" HeaderText="Observaciones">
+            <ItemStyle Font-Bold="True" Font-Size="10pt" BackColor="#FEE0E2" />
+        </asp:BoundField>
+
+    </Columns>
+
+    <HeaderStyle HorizontalAlign="Center" />
+
+</asp:GridView>
+
              
                  
 
                    <asp:SqlDataSource ID="sql_ds_asistencia_hoy" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="select ci_doc ,(p.nombres +' '+p.primerApellido +' '+p.segundoApellido ) as docente,carrera ,Materia ,sigla_materia,grupo,tipo_clase ,hra_inicio,hra_fin ,hr_ingreso ,hr_salida ,isnull(observaciones ,'Clases en Curso o Por Cursar') as observaciones  from tb_ing_sal i
 join tb_personal p on i.ci_doc = p.ci 
-where p.gestion ='1-2025' and CONVERT(varchar,hora_registro,103) =CONVERT(varchar,getdate(),103) and sede =@sede and carrera =@carrera
+where p.gestion ='2-2025' and CONVERT(varchar,hora_registro,103) =CONVERT(varchar,getdate(),103) and sede =@sede and carrera =@carrera
 
 and i.dia =(SELECT (CASE DATENAME(dw,getdate())
 when 'Monday' then 'Lunes'

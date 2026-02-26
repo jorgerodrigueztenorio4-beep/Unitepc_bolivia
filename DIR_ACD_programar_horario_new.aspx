@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="DIR_ACD_programar_horario_new.aspx.vb" Inherits="DIR_ACD_programar_horario_new" MasterPageFile="mp_dir_academico.master" %>
 
 <asp:Content ID="Content1" runat="server" contentplaceholderid="ContentPlaceHolder1">
-       <form runat ="server">
+     
            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
      <div class="alert alert-success mt-1 text-md-center text-bold " role="alert">
     <asp:Label ID="lbl_cargo"  runat="server" Text=""></asp:Label>
@@ -208,7 +208,7 @@
                                                 </Columns>
                                                 <HeaderStyle BackColor="#D4EDDA" BorderColor="#C3E6CB" ForeColor="#155724" />
                                                </asp:GridView>
-                                               <asp:SqlDataSource ID="sql_ds_clase_no" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="SELECT th.id_horario, th.dia, th.tipo_clase, th.hora_inicio, th.hora_fin, s.NombreSede, b.nom_bloque, a.nom_aula_lab FROM tb_horario AS th INNER JOIN tb_aula AS a ON th.aula = a.id_nomal INNER JOIN tb_bloques AS b ON th.bloque = b.id_bloque INNER JOIN tb_sedes AS s ON th.sede = s.idSede WHERE (th.designado = 'No') AND (th.gestion = '1-2025')  AND (th.ci_usuario = @cius)  and a.gestion ='1-2024'" DeleteCommand="DELETE FROM tb_horario WHERE (id_horario = @id_horario)">
+                                               <asp:SqlDataSource ID="sql_ds_clase_no" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="SELECT th.id_horario, th.dia, th.tipo_clase, th.hora_inicio, th.hora_fin, s.NombreSede, b.nom_bloque, a.nom_aula_lab FROM tb_horario AS th INNER JOIN tb_aula AS a ON th.aula = a.id_nomal INNER JOIN tb_bloques AS b ON th.bloque = b.id_bloque INNER JOIN tb_sedes AS s ON th.sede = s.idSede WHERE (th.designado = 'No') AND (th.gestion = '1-2026')  AND (th.ci_usuario = @cius)  and a.gestion ='1-2024'" DeleteCommand="DELETE FROM tb_horario WHERE (id_horario = @id_horario)">
                                                    <DeleteParameters>
                                                        <asp:Parameter Name="id_horario" />
                                                    </DeleteParameters>
@@ -281,7 +281,7 @@ FROM tb_horario AS h
 INNER JOIN tb_designacion AS d ON h.id_horario = d.id_horario 
 INNER JOIN tb_bloques AS b ON h.bloque = b.id_bloque 
 INNER JOIN tb_aula AS a ON h.aula = a.id_nomal
-WHERE (h.sede = @sede) AND (h.bloque = @bloque) AND (h.dia = @dia) AND (h.aula = @aula) and h.gestion ='1-2025' order by hora_inicio">
+WHERE (h.sede = @sede) AND (h.bloque = @bloque) AND (h.dia = @dia) AND (h.aula = @aula) and h.gestion ='1-2026' order by hora_inicio">
                                                    <SelectParameters>
                                                        <asp:ControlParameter ControlID="ddl_sede" Name="sede" PropertyName="SelectedValue" />
                                                        <asp:ControlParameter ControlID="ddl_bloque" Name="bloque" PropertyName="SelectedValue" />
@@ -313,7 +313,7 @@ WHERE (h.sede = @sede) AND (h.bloque = @bloque) AND (h.dia = @dia) AND (h.aula =
                                                    <HeaderStyle BackColor="#CCCCFF" />
                                                </asp:GridView>
                                                <asp:SqlDataSource ID="sql_ds_inicio" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="select * from tb_horario 
-where  gestion ='1-2025' and  dia =@dia and sede=@sede and aula=@aula  and @hi&lt; hora_fin and @hi&gt;= hora_inicio 
+where  gestion ='1-2026' and  dia =@dia and sede=@sede and aula=@aula  and @hi&lt; hora_fin and @hi&gt;= hora_inicio 
 ">
                                                    <SelectParameters>
                                                        <asp:ControlParameter ControlID="ddl_dia" Name="dia" PropertyName="SelectedValue" />
@@ -344,7 +344,7 @@ where  gestion ='1-2025' and  dia =@dia and sede=@sede and aula=@aula  and @hi&l
                                                <HeaderStyle BackColor="#CCFFFF" />
                                                </asp:GridView>
                                                <asp:SqlDataSource ID="sql_ds_fin" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="select * from tb_horario 
-where  gestion ='1-2025' and  dia =@dia and sede=@sede and aula=@aula  and @hf&gt; hora_inicio and @hf&lt;=hora_fin 
+where  gestion ='1-2026' and  dia =@dia and sede=@sede and aula=@aula  and @hf&gt; hora_inicio and @hf&lt;=hora_fin 
 ">
                                                    <SelectParameters>
                                                        <asp:ControlParameter ControlID="ddl_dia" Name="dia" PropertyName="SelectedValue" />
@@ -363,7 +363,7 @@ where  gestion ='1-2025' and  dia =@dia and sede=@sede and aula=@aula  and @hf&g
       
            <asp:TextBox ID="txt_sigla_carrera" runat="server" Visible="False"></asp:TextBox>
            
-           <asp:SqlDataSource ID="sql_ds_horario" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" InsertCommand="INSERT INTO tb_horario(gestion, tipo_clase, hora_inicio, hora_fin, grupo, dia, link_clase, bloque, aula, fecha_registro, ci_usuario, sede, designado, ci_doc) VALUES ('1-2025', @tipoclase, @hini, @hrfin, @grupo, @dia, @linkclase, @bloque, @aula, GETDATE(), @ciusuario, @sede, 'No', '0')" ProviderName="<%$ ConnectionStrings:unitepc_boliviaConnectionString.ProviderName %>">
+           <asp:SqlDataSource ID="sql_ds_horario" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" InsertCommand="INSERT INTO tb_horario(gestion, tipo_clase, hora_inicio, hora_fin, grupo, dia, link_clase, bloque, aula, fecha_registro, ci_usuario, sede, designado, ci_doc) VALUES ('1-2026', @tipoclase, @hini, @hrfin, @grupo, @dia, @linkclase, @bloque, @aula, GETDATE(), @ciusuario, @sede, 'No', '0')" ProviderName="<%$ ConnectionStrings:unitepc_boliviaConnectionString.ProviderName %>">
                <InsertParameters>
                    <asp:ControlParameter ControlID="ddl_tipo_clase" Name="tipoclase" PropertyName="SelectedValue" />
                    <asp:ControlParameter ControlID="txt_hora_ini" Name="hini" PropertyName="Text" />

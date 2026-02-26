@@ -86,4 +86,9 @@ Partial Class agregar_personal_servicio
 
 
     End Sub
+
+    Protected Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        SQL_DS_HORARIO.Update()
+
+    End Sub
 End Class

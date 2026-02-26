@@ -48,7 +48,7 @@ group by nombres ,primerApellido,segundoApellido,ci_doc order by docente
 join tb_designacion td on th.id_horario = td.id_horario
 join planes_estudios p on td.id_materia = p.id_plan 
 join tb_personal tp on th.ci_doc = tp.ci 
-where th.sede =@sede and tp.gestion='1-2026' and th.gestion ='1-2026'  and (p.codcar ='carsis' or p.codcar ='carson' or p.codcar ='carele' or p.codcar ='caribi' )
+where th.sede =@sede and tp.gestion='2-2025' and th.gestion ='2-2025'  and (p.codcar ='carsis' or p.codcar ='carson' or p.codcar ='carele' or p.codcar ='caribi' )
 group by nombres ,primerApellido,segundoApellido,ci_doc order by docente">
                                     <SelectParameters>
                                         <asp:ControlParameter ControlID="ddl_sede" Name="sede" PropertyName="SelectedValue" />

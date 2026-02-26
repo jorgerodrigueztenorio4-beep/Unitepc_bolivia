@@ -17,6 +17,7 @@
                 </div>
                 <div>
                     <asp:Button ID="Button1" CssClass="btn btn-primary " runat="server" Text="Actualizar" OnClientClick="animarBarra();"  />
+                   
                     <span>
                         <asp:Label ID="lbl_notificacion" runat="server" Text=""></asp:Label>
 
@@ -34,25 +35,7 @@
                 <!--end::Header-->
                 <!--begin::Form-->
             </div>
-            <!--begin::Body-->
-            
-           <%-- <asp:GridView ID="GV_HORARIOS" runat="server" AutoGenerateColumns="False" DataSourceID="SQL_DS_HORARIO" Font-Size="9pt">
-                <Columns>
-                    <asp:BoundField DataField="id_horario" HeaderText="id_horario" InsertVisible="False" ReadOnly="True" SortExpression="id_horario" />
-                    <asp:BoundField DataField="ci_doc" HeaderText="ci_doc" SortExpression="ci_doc" />
-                    <asp:BoundField DataField="gestion" HeaderText="gestion" SortExpression="gestion" />
-                    <asp:BoundField DataField="hora_inicio" HeaderText="hora_inicio" SortExpression="hora_inicio" />
-                    <asp:BoundField DataField="hora_fin" HeaderText="hora_fin" SortExpression="hora_fin" />
-                    <asp:BoundField DataField="grupo" HeaderText="grupo" SortExpression="grupo" />
-                    <asp:BoundField DataField="Column1" HeaderText="Column1" SortExpression="Column1" ReadOnly="True" />
-                    <asp:BoundField DataField="Materia" HeaderText="Materia" SortExpression="Materia" />
-                    <asp:BoundField DataField="Column2" HeaderText="Column2" SortExpression="Column2" ReadOnly="True" />
-                    <asp:BoundField DataField="tipo_clase" HeaderText="tipo_clase" ReadOnly="True" SortExpression="tipo_clase" />
-                    <asp:BoundField DataField="NombreSede" HeaderText="NombreSede" SortExpression="NombreSede" />
-                    <asp:BoundField DataField="idSede" HeaderText="idSede" SortExpression="idSede" />
-                    <asp:BoundField DataField="id_rrhh" HeaderText="id_rrhh" SortExpression="id_rrhh" />
-                </Columns>
-            </asp:GridView>--%>
+          
             <asp:SqlDataSource ID="SQL_DS_HORARIO" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="SELECT H.id_horario ,H.ci_doc , H.gestion ,hora_inicio ,H.hora_fin ,H.grupo,rtrim(P.codcar) ,P.Materia,RTRIM( P.SiglaP) ,SUBSTRING (H.tipo_clase,1,1) as tipo_clase,s.NombreSede ,s.idSede,s.id_rrhh     
 FROM tb_horario H 
 JOIN tb_designacion D ON D.id_horario = H.id_horario 
@@ -63,7 +46,7 @@ and p.codcar=@codcar
 and h.sede=@sede">
                 <SelectParameters>
                     
-                    <asp:ControlParameter ControlID="TextBox3" Name="codcar" PropertyName="Text"/>
+                    <asp:ControlParameter ControlID="TextBox3" Name="codcar" PropertyName="Text" />
                     <asp:ControlParameter ControlID="TextBox1" Name="sede" PropertyName="Text"  />
                 </SelectParameters>
             </asp:SqlDataSource>
@@ -87,8 +70,8 @@ where ci=@ci and gestion ='1-2026'" UpdateCommand="UPDATE tb_horario SET ci_doc 
         </asp:SqlDataSource>
             <div class="card-footer">
                 
-                <asp:TextBox ID="TextBox1" placeholder="sede" runat="server"  visible="true" ></asp:TextBox>
-                <asp:TextBox ID="TextBox2" placeholder="carrera" runat="server"  visible="true" ></asp:TextBox>
+                <asp:TextBox ID="TextBox1" placeholder="sede" runat="server"  visible="false" ></asp:TextBox>
+                <asp:TextBox ID="TextBox2" placeholder="carrera" runat="server" Visible="False" ></asp:TextBox>
                 <asp:TextBox ID="TextBox3" runat="server"  visible="false" ></asp:TextBox>
                   <asp:TextBox ID="txt_siglamat" runat="server"  visible="false" ></asp:TextBox>
   <asp:TextBox ID="txt_siglah" runat="server"  visible="false" ></asp:TextBox>

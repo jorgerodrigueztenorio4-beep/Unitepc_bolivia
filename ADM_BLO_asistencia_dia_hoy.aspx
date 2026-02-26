@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" runat="server" contentplaceholderid="ContentPlaceHolder1">
     <form runat ="server"  >
    
-    <!-- Content Header (Page header) -->
+    <!-- Content Header (Page header) alter to day 06/02/2026 -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -16,15 +16,15 @@
                          </ol>
           </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div><!-- /.container-fluid is work to day 06/02/2026 -->
     </section>
 
-    <!-- Main content -->
+    <!-- Main content next  -->
     <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
-            <!-- AREA CHART -->
+            <!-- AREA CHART for details -->
             <div class="card card-purple">
               <div class="card-header">
                 <h3 class="card-title">Lista de todas las Clases del Dia Actual</h3>
@@ -64,7 +64,7 @@
                    </asp:GridView>
                  <asp:SqlDataSource ID="sql_ds_asistencia_hoy" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="select ci_doc ,(p.nombres +' '+p.primerApellido +' '+p.segundoApellido ) as docente,carrera ,Materia ,sigla_materia,grupo,tipo_clase ,hra_inicio,hra_fin ,hr_ingreso ,hr_salida ,isnull(observaciones ,'Clases en Curso o Por Cursar') as observaciones  from tb_ing_sal i
 join tb_personal p on i.ci_doc = p.ci 
-where p.gestion ='1-2025' and CONVERT(varchar,hora_registro,103) =CONVERT(varchar,getdate(),103) and sede =@sede and carrera =@carrera and i.gestion ='1-2025'
+where p.gestion ='1-2026' and CONVERT(varchar,hora_registro,103) =CONVERT(varchar,getdate(),103) and sede =@sede and carrera =@carrera and i.gestion ='1-2026'
 
 and i.dia =(SELECT (CASE DATENAME(dw,getdate())
 when 'Monday' then 'Lunes'
