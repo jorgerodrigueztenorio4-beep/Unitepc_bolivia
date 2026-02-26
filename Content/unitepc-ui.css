@@ -1,0 +1,156 @@
+﻿/* =========================================
+   UNITEPC CORPORATE UI KIT
+   Minimalista - Empresarial - Profesional
+========================================= */
+
+:root {
+    --corporate-primary: #002147;
+    --corporate-secondary: #0d6efd;
+    --corporate-light: #f4f6f9;
+    --corporate-border: #dcdcdc;
+}
+
+/* ====== GENERAL ====== */
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--corporate-light);
+}
+
+/* ====== CARDS / PANEL ====== */
+
+.card-corporate {
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0px 15px 35px rgba(0,0,0,0.08);
+    padding: 25px;
+    border: none;
+}
+
+/* ====== TITULOS ====== */
+
+.title-corporate {
+    font-weight: 600;
+    color: var(--corporate-primary);
+    margin-bottom: 20px;
+}
+
+/* ====== TEXTBOX ====== */
+
+.textbox-corporate {
+    height: 42px;
+    border-radius: 10px;
+    border: 1px solid var(--corporate-border);
+    padding: 8px 12px;
+    transition: all 0.2s ease;
+}
+
+    .textbox-corporate:focus {
+        border-color: var(--corporate-secondary);
+        box-shadow: 0 0 0 3px rgba(13,110,253,0.15);
+        outline: none;
+    }
+
+/* ====== DROPDOWN ====== */
+
+.dropdown-corporate {
+    height: 42px;
+    border-radius: 10px;
+    border: 1px solid var(--corporate-border);
+    padding: 6px 12px;
+    background-color: white;
+}
+
+    .dropdown-corporate:focus {
+        border-color: var(--corporate-secondary);
+        box-shadow: 0 0 0 3px rgba(13,110,253,0.15);
+    }
+
+/* ====== BUTTON ====== */
+
+.btn-corporate {
+    background-color: var(--corporate-primary);
+    color: white;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-weight: 600;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+    .btn-corporate:hover {
+        background-color: var(--corporate-secondary);
+        transform: translateY(-1px);
+    }
+
+/* Botón secundario */
+.btn-corporate-outline {
+    background: white;
+    border: 1px solid var(--corporate-primary);
+    color: var(--corporate-primary);
+    border-radius: 10px;
+    padding: 10px 18px;
+}
+
+    .btn-corporate-outline:hover {
+        background: var(--corporate-primary);
+        color: white;
+    }
+
+/* ====== GRIDVIEW ====== */
+
+.grid-corporate {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.05);
+}
+
+    .grid-corporate th {
+        background-color: var(--corporate-primary);
+        color: white;
+        padding: 12px;
+        font-weight: 600;
+        text-align: left;
+    }
+
+    .grid-corporate td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .grid-corporate tr:hover {
+        background-color: #f2f6fc;
+    }
+
+/* ====== LABEL ====== */
+
+.label-corporate {
+    font-weight: 500;
+    color: var(--corporate-primary);
+}
+
+/* ====== VALIDACION ====== */
+
+.validation-error {
+    color: #dc3545;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* ====== CHECKBOX ====== */
+
+.checkbox-corporate input {
+    margin-right: 6px;
+}
+
+/* ====== FILEUPLOAD ====== */
+
+.fileupload-corporate {
+    border: 1px solid var(--corporate-border);
+    padding: 6px;
+    border-radius: 8px;
+    background: white;
+}

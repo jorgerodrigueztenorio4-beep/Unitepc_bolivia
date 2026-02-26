@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ListaEstudiantes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSede" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaEstudiantesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaEstudiantesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaEstudiantesPagos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSede" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaEstudiantesPagosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaEstudiantesPagosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaDocentes">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListaDocentesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaDocentesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaAdministrativos">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListaAdministrativosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaAdministrativosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaEstudiantesConContrato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSede" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaEstudiantesConContratoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaEstudiantesConContratoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaEstudiantesBecados100Porc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSede" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaEstudiantesBecados100PorcResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaEstudiantesBecados100PorcResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaEstudiantesTesnac">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListaEstudiantesTesnacResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaEstudiantesTesnacResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ListaEstudiantesSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaEstudiantes" />
+  </wsdl:message>
+  <wsdl:message name="ListaEstudiantesSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaEstudiantesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaEstudiantesPagosSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaEstudiantesPagos" />
+  </wsdl:message>
+  <wsdl:message name="ListaEstudiantesPagosSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaEstudiantesPagosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaDocentesSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaDocentes" />
+  </wsdl:message>
+  <wsdl:message name="ListaDocentesSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaDocentesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaAdministrativosSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaAdministrativos" />
+  </wsdl:message>
+  <wsdl:message name="ListaAdministrativosSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaAdministrativosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaEstudiantesConContratoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaEstudiantesConContrato" />
+  </wsdl:message>
+  <wsdl:message name="ListaEstudiantesConContratoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaEstudiantesConContratoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaEstudiantesBecados100PorcSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaEstudiantesBecados100Porc" />
+  </wsdl:message>
+  <wsdl:message name="ListaEstudiantesBecados100PorcSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaEstudiantesBecados100PorcResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaEstudiantesTesnacSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaEstudiantesTesnac" />
+  </wsdl:message>
+  <wsdl:message name="ListaEstudiantesTesnacSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaEstudiantesTesnacResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceSoap">
+    <wsdl:operation name="ListaEstudiantes">
+      <wsdl:input message="tns:ListaEstudiantesSoapIn" />
+      <wsdl:output message="tns:ListaEstudiantesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaEstudiantesPagos">
+      <wsdl:input message="tns:ListaEstudiantesPagosSoapIn" />
+      <wsdl:output message="tns:ListaEstudiantesPagosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaDocentes">
+      <wsdl:input message="tns:ListaDocentesSoapIn" />
+      <wsdl:output message="tns:ListaDocentesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaAdministrativos">
+      <wsdl:input message="tns:ListaAdministrativosSoapIn" />
+      <wsdl:output message="tns:ListaAdministrativosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaEstudiantesConContrato">
+      <wsdl:input message="tns:ListaEstudiantesConContratoSoapIn" />
+      <wsdl:output message="tns:ListaEstudiantesConContratoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaEstudiantesBecados100Porc">
+      <wsdl:input message="tns:ListaEstudiantesBecados100PorcSoapIn" />
+      <wsdl:output message="tns:ListaEstudiantesBecados100PorcSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaEstudiantesTesnac">
+      <wsdl:input message="tns:ListaEstudiantesTesnacSoapIn" />
+      <wsdl:output message="tns:ListaEstudiantesTesnacSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListaEstudiantes">
+      <soap:operation soapAction="http://tempuri.org/ListaEstudiantes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaEstudiantesPagos">
+      <soap:operation soapAction="http://tempuri.org/ListaEstudiantesPagos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDocentes">
+      <soap:operation soapAction="http://tempuri.org/ListaDocentes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaAdministrativos">
+      <soap:operation soapAction="http://tempuri.org/ListaAdministrativos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaEstudiantesConContrato">
+      <soap:operation soapAction="http://tempuri.org/ListaEstudiantesConContrato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaEstudiantesBecados100Porc">
+      <soap:operation soapAction="http://tempuri.org/ListaEstudiantesBecados100Porc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaEstudiantesTesnac">
+      <soap:operation soapAction="http://tempuri.org/ListaEstudiantesTesnac" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListaEstudiantes">
+      <soap12:operation soapAction="http://tempuri.org/ListaEstudiantes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaEstudiantesPagos">
+      <soap12:operation soapAction="http://tempuri.org/ListaEstudiantesPagos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDocentes">
+      <soap12:operation soapAction="http://tempuri.org/ListaDocentes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaAdministrativos">
+      <soap12:operation soapAction="http://tempuri.org/ListaAdministrativos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaEstudiantesConContrato">
+      <soap12:operation soapAction="http://tempuri.org/ListaEstudiantesConContrato" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaEstudiantesBecados100Porc">
+      <soap12:operation soapAction="http://tempuri.org/ListaEstudiantesBecados100Porc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaEstudiantesTesnac">
+      <soap12:operation soapAction="http://tempuri.org/ListaEstudiantesTesnac" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService">
+    <wsdl:port name="WebServiceSoap" binding="tns:WebServiceSoap">
+      <soap:address location="http://192.168.1.172:28282/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceSoap12" binding="tns:WebServiceSoap12">
+      <soap12:address location="http://192.168.1.172:28282/WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

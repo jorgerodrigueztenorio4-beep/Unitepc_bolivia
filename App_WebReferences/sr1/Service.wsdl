@@ -1,0 +1,839 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://192.168.50.13:9095/Service.asmx" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://192.168.50.13:9095/Service.asmx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://192.168.50.13:9095/Service.asmx">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="horarios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ci" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="horariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="horariosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="docentes">
+        <s:complexType />
+      </s:element>
+      <s:element name="docentesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="docentesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="docentes2022">
+        <s:complexType />
+      </s:element>
+      <s:element name="docentes2022Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="docentes2022Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="docentesmoodlev">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sede" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="carrera" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="docentesmoodlevResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="docentesmoodlevResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="docentesmoodlep">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sede" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="carrera" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="docentesmoodlepResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="docentesmoodlepResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="docentesnuevos">
+        <s:complexType />
+      </s:element>
+      <s:element name="docentesnuevosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="docentesnuevosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="herederos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ci" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="herederosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="herederosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Materias2022">
+        <s:complexType />
+      </s:element>
+      <s:element name="Materias2022Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Materias2022Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Materiasci2022">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ci" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Materiasci2022Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Materiasci2022Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="docentesci2022">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ci" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="docentesci2022Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="docentesci2022Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="docentesmoodle2022">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sede" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="carrera" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fecha1" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fecha2" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="docentesmoodle2022Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="docentesmoodle2022Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="docentesmoodle2022P">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sede" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="carrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fecha1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fecha2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="docentesmoodle2022PResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="docentesmoodle2022PResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HORASDOCENTE2023">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sede" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CARRERA" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FECHA_INI" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="FECHA_FIN" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HORASDOCENTE2023Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HORASDOCENTE2023Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ajusteHORASDOCENTE2023">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SEDE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CARRERA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FECHA_INI" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FECHA_FIN" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ajusteHORASDOCENTE2023Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ajusteHORASDOCENTE2023Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="morenada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ci" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="morenadaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="morenadaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="lista_para_actializar">
+        <s:complexType />
+      </s:element>
+      <s:element name="lista_para_actializarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lista_para_actializarResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="horariosSoapIn">
+    <wsdl:part name="parameters" element="tns:horarios" />
+  </wsdl:message>
+  <wsdl:message name="horariosSoapOut">
+    <wsdl:part name="parameters" element="tns:horariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="docentesSoapIn">
+    <wsdl:part name="parameters" element="tns:docentes" />
+  </wsdl:message>
+  <wsdl:message name="docentesSoapOut">
+    <wsdl:part name="parameters" element="tns:docentesResponse" />
+  </wsdl:message>
+  <wsdl:message name="docentes2022SoapIn">
+    <wsdl:part name="parameters" element="tns:docentes2022" />
+  </wsdl:message>
+  <wsdl:message name="docentes2022SoapOut">
+    <wsdl:part name="parameters" element="tns:docentes2022Response" />
+  </wsdl:message>
+  <wsdl:message name="docentesmoodlevSoapIn">
+    <wsdl:part name="parameters" element="tns:docentesmoodlev" />
+  </wsdl:message>
+  <wsdl:message name="docentesmoodlevSoapOut">
+    <wsdl:part name="parameters" element="tns:docentesmoodlevResponse" />
+  </wsdl:message>
+  <wsdl:message name="docentesmoodlepSoapIn">
+    <wsdl:part name="parameters" element="tns:docentesmoodlep" />
+  </wsdl:message>
+  <wsdl:message name="docentesmoodlepSoapOut">
+    <wsdl:part name="parameters" element="tns:docentesmoodlepResponse" />
+  </wsdl:message>
+  <wsdl:message name="docentesnuevosSoapIn">
+    <wsdl:part name="parameters" element="tns:docentesnuevos" />
+  </wsdl:message>
+  <wsdl:message name="docentesnuevosSoapOut">
+    <wsdl:part name="parameters" element="tns:docentesnuevosResponse" />
+  </wsdl:message>
+  <wsdl:message name="herederosSoapIn">
+    <wsdl:part name="parameters" element="tns:herederos" />
+  </wsdl:message>
+  <wsdl:message name="herederosSoapOut">
+    <wsdl:part name="parameters" element="tns:herederosResponse" />
+  </wsdl:message>
+  <wsdl:message name="Materias2022SoapIn">
+    <wsdl:part name="parameters" element="tns:Materias2022" />
+  </wsdl:message>
+  <wsdl:message name="Materias2022SoapOut">
+    <wsdl:part name="parameters" element="tns:Materias2022Response" />
+  </wsdl:message>
+  <wsdl:message name="Materiasci2022SoapIn">
+    <wsdl:part name="parameters" element="tns:Materiasci2022" />
+  </wsdl:message>
+  <wsdl:message name="Materiasci2022SoapOut">
+    <wsdl:part name="parameters" element="tns:Materiasci2022Response" />
+  </wsdl:message>
+  <wsdl:message name="docentesci2022SoapIn">
+    <wsdl:part name="parameters" element="tns:docentesci2022" />
+  </wsdl:message>
+  <wsdl:message name="docentesci2022SoapOut">
+    <wsdl:part name="parameters" element="tns:docentesci2022Response" />
+  </wsdl:message>
+  <wsdl:message name="docentesmoodle2022SoapIn">
+    <wsdl:part name="parameters" element="tns:docentesmoodle2022" />
+  </wsdl:message>
+  <wsdl:message name="docentesmoodle2022SoapOut">
+    <wsdl:part name="parameters" element="tns:docentesmoodle2022Response" />
+  </wsdl:message>
+  <wsdl:message name="docentesmoodle2022PSoapIn">
+    <wsdl:part name="parameters" element="tns:docentesmoodle2022P" />
+  </wsdl:message>
+  <wsdl:message name="docentesmoodle2022PSoapOut">
+    <wsdl:part name="parameters" element="tns:docentesmoodle2022PResponse" />
+  </wsdl:message>
+  <wsdl:message name="HORASDOCENTE2023SoapIn">
+    <wsdl:part name="parameters" element="tns:HORASDOCENTE2023" />
+  </wsdl:message>
+  <wsdl:message name="HORASDOCENTE2023SoapOut">
+    <wsdl:part name="parameters" element="tns:HORASDOCENTE2023Response" />
+  </wsdl:message>
+  <wsdl:message name="ajusteHORASDOCENTE2023SoapIn">
+    <wsdl:part name="parameters" element="tns:ajusteHORASDOCENTE2023" />
+  </wsdl:message>
+  <wsdl:message name="ajusteHORASDOCENTE2023SoapOut">
+    <wsdl:part name="parameters" element="tns:ajusteHORASDOCENTE2023Response" />
+  </wsdl:message>
+  <wsdl:message name="morenadaSoapIn">
+    <wsdl:part name="parameters" element="tns:morenada" />
+  </wsdl:message>
+  <wsdl:message name="morenadaSoapOut">
+    <wsdl:part name="parameters" element="tns:morenadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="lista_para_actializarSoapIn">
+    <wsdl:part name="parameters" element="tns:lista_para_actializar" />
+  </wsdl:message>
+  <wsdl:message name="lista_para_actializarSoapOut">
+    <wsdl:part name="parameters" element="tns:lista_para_actializarResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WEB_SERVICE_SEGUIMIENTOSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="horarios">
+      <wsdl:input message="tns:horariosSoapIn" />
+      <wsdl:output message="tns:horariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="docentes">
+      <wsdl:input message="tns:docentesSoapIn" />
+      <wsdl:output message="tns:docentesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="docentes2022">
+      <wsdl:input message="tns:docentes2022SoapIn" />
+      <wsdl:output message="tns:docentes2022SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="docentesmoodlev">
+      <wsdl:input message="tns:docentesmoodlevSoapIn" />
+      <wsdl:output message="tns:docentesmoodlevSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="docentesmoodlep">
+      <wsdl:input message="tns:docentesmoodlepSoapIn" />
+      <wsdl:output message="tns:docentesmoodlepSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="docentesnuevos">
+      <wsdl:input message="tns:docentesnuevosSoapIn" />
+      <wsdl:output message="tns:docentesnuevosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="herederos">
+      <wsdl:input message="tns:herederosSoapIn" />
+      <wsdl:output message="tns:herederosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Materias2022">
+      <wsdl:input message="tns:Materias2022SoapIn" />
+      <wsdl:output message="tns:Materias2022SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Materiasci2022">
+      <wsdl:input message="tns:Materiasci2022SoapIn" />
+      <wsdl:output message="tns:Materiasci2022SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="docentesci2022">
+      <wsdl:input message="tns:docentesci2022SoapIn" />
+      <wsdl:output message="tns:docentesci2022SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="docentesmoodle2022">
+      <wsdl:input message="tns:docentesmoodle2022SoapIn" />
+      <wsdl:output message="tns:docentesmoodle2022SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="docentesmoodle2022P">
+      <wsdl:input message="tns:docentesmoodle2022PSoapIn" />
+      <wsdl:output message="tns:docentesmoodle2022PSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HORASDOCENTE2023">
+      <wsdl:input message="tns:HORASDOCENTE2023SoapIn" />
+      <wsdl:output message="tns:HORASDOCENTE2023SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ajusteHORASDOCENTE2023">
+      <wsdl:input message="tns:ajusteHORASDOCENTE2023SoapIn" />
+      <wsdl:output message="tns:ajusteHORASDOCENTE2023SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="morenada">
+      <wsdl:input message="tns:morenadaSoapIn" />
+      <wsdl:output message="tns:morenadaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="lista_para_actializar">
+      <wsdl:input message="tns:lista_para_actializarSoapIn" />
+      <wsdl:output message="tns:lista_para_actializarSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WEB_SERVICE_SEGUIMIENTOSoap" type="tns:WEB_SERVICE_SEGUIMIENTOSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://192.168.50.13:9095/Service.asmx/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="horarios">
+      <soap:operation soapAction="http://192.168.50.13:9095/Service.asmx/horarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="docentes">
+      <soap:operation soapAction="http://192.168.50.13:9095/Service.asmx/docentes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="docentes2022">
+      <soap:operation soapAction="http://192.168.50.13:9095/Service.asmx/docentes2022" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="docentesmoodlev">
+      <soap:operation soapAction="http://192.168.50.13:9095/Service.asmx/docentesmoodlev" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="docentesmoodlep">
+      <soap:operation soapAction="http://192.168.50.13:9095/Service.asmx/docentesmoodlep" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="docentesnuevos">
+      <soap:operation soapAction="http://192.168.50.13:9095/Service.asmx/docentesnuevos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="herederos">
+      <soap:operation soapAction="http://192.168.50.13:9095/Service.asmx/herederos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Materias2022">
+      <soap:operation soapAction="http://192.168.50.13:9095/Service.asmx/Materias2022" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Materiasci2022">
+      <soap:operation soapAction="http://192.168.50.13:9095/Service.asmx/Materiasci2022" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="docentesci2022">
+      <soap:operation soapAction="http://192.168.50.13:9095/Service.asmx/docentesci2022" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="docentesmoodle2022">
+      <soap:operation soapAction="http://192.168.50.13:9095/Service.asmx/docentesmoodle2022" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="docentesmoodle2022P">
+      <soap:operation soapAction="http://192.168.50.13:9095/Service.asmx/docentesmoodle2022P" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HORASDOCENTE2023">
+      <soap:operation soapAction="http://192.168.50.13:9095/Service.asmx/HORASDOCENTE2023" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ajusteHORASDOCENTE2023">
+      <soap:operation soapAction="http://192.168.50.13:9095/Service.asmx/ajusteHORASDOCENTE2023" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="morenada">
+      <soap:operation soapAction="http://192.168.50.13:9095/Service.asmx/morenada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lista_para_actializar">
+      <soap:operation soapAction="http://192.168.50.13:9095/Service.asmx/lista_para_actializar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WEB_SERVICE_SEGUIMIENTOSoap12" type="tns:WEB_SERVICE_SEGUIMIENTOSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://192.168.50.13:9095/Service.asmx/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="horarios">
+      <soap12:operation soapAction="http://192.168.50.13:9095/Service.asmx/horarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="docentes">
+      <soap12:operation soapAction="http://192.168.50.13:9095/Service.asmx/docentes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="docentes2022">
+      <soap12:operation soapAction="http://192.168.50.13:9095/Service.asmx/docentes2022" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="docentesmoodlev">
+      <soap12:operation soapAction="http://192.168.50.13:9095/Service.asmx/docentesmoodlev" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="docentesmoodlep">
+      <soap12:operation soapAction="http://192.168.50.13:9095/Service.asmx/docentesmoodlep" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="docentesnuevos">
+      <soap12:operation soapAction="http://192.168.50.13:9095/Service.asmx/docentesnuevos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="herederos">
+      <soap12:operation soapAction="http://192.168.50.13:9095/Service.asmx/herederos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Materias2022">
+      <soap12:operation soapAction="http://192.168.50.13:9095/Service.asmx/Materias2022" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Materiasci2022">
+      <soap12:operation soapAction="http://192.168.50.13:9095/Service.asmx/Materiasci2022" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="docentesci2022">
+      <soap12:operation soapAction="http://192.168.50.13:9095/Service.asmx/docentesci2022" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="docentesmoodle2022">
+      <soap12:operation soapAction="http://192.168.50.13:9095/Service.asmx/docentesmoodle2022" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="docentesmoodle2022P">
+      <soap12:operation soapAction="http://192.168.50.13:9095/Service.asmx/docentesmoodle2022P" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HORASDOCENTE2023">
+      <soap12:operation soapAction="http://192.168.50.13:9095/Service.asmx/HORASDOCENTE2023" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ajusteHORASDOCENTE2023">
+      <soap12:operation soapAction="http://192.168.50.13:9095/Service.asmx/ajusteHORASDOCENTE2023" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="morenada">
+      <soap12:operation soapAction="http://192.168.50.13:9095/Service.asmx/morenada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lista_para_actializar">
+      <soap12:operation soapAction="http://192.168.50.13:9095/Service.asmx/lista_para_actializar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WEB_SERVICE_SEGUIMIENTO">
+    <wsdl:port name="WEB_SERVICE_SEGUIMIENTOSoap" binding="tns:WEB_SERVICE_SEGUIMIENTOSoap">
+      <soap:address location="http://192.168.50.13:9095/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WEB_SERVICE_SEGUIMIENTOSoap12" binding="tns:WEB_SERVICE_SEGUIMIENTOSoap12">
+      <soap12:address location="http://192.168.50.13:9095/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

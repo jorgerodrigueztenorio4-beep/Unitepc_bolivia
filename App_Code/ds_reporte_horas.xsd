@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_reporte_horas" targetNamespace="http://tempuri.org/ds_reporte_horas.xsd" xmlns:mstns="http://tempuri.org/ds_reporte_horas.xsd" xmlns="http://tempuri.org/ds_reporte_horas.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="unitepc_tramitesConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="unitepc_tramitesConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.unitepc_tramitesConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="unitepc_tramitesConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>Select th.nom_docente ,ti.ci_doc ,ti.Materia ,ti.tema_avance ,ti.carrera ,cant_est ,hr_ingreso ,hr_salida ,((datediff (SS,TI.hr_ingreso   ,TI.hr_salida )/60)) AS MINUTOS,ti.observaciones 
+FROM tb_ing_sal ti
+inner join tb_horarios  th on ti.ci_doc = th.ci_docente </CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nom_docente" DataSetColumn="nom_docente" />
+              <Mapping SourceColumn="ci_doc" DataSetColumn="ci_doc" />
+              <Mapping SourceColumn="Materia" DataSetColumn="Materia" />
+              <Mapping SourceColumn="tema_avance" DataSetColumn="tema_avance" />
+              <Mapping SourceColumn="carrera" DataSetColumn="carrera" />
+              <Mapping SourceColumn="cant_est" DataSetColumn="cant_est" />
+              <Mapping SourceColumn="hr_ingreso" DataSetColumn="hr_ingreso" />
+              <Mapping SourceColumn="hr_salida" DataSetColumn="hr_salida" />
+              <Mapping SourceColumn="MINUTOS" DataSetColumn="MINUTOS" />
+              <Mapping SourceColumn="observaciones" DataSetColumn="observaciones" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_reporte_horas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ds_reporte_horas" msprop:Generator_DataSetName="ds_reporte_horas">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nom_docente" msprop:Generator_ColumnVarNameInTable="columnnom_docente" msprop:Generator_ColumnPropNameInRow="nom_docente" msprop:Generator_ColumnPropNameInTable="nom_docenteColumn" msprop:Generator_UserColumnName="nom_docente" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="350" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ci_doc" msprop:Generator_ColumnVarNameInTable="columnci_doc" msprop:Generator_ColumnPropNameInRow="ci_doc" msprop:Generator_ColumnPropNameInTable="ci_docColumn" msprop:Generator_UserColumnName="ci_doc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="350" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Materia" msprop:Generator_ColumnVarNameInTable="columnMateria" msprop:Generator_ColumnPropNameInRow="Materia" msprop:Generator_ColumnPropNameInTable="MateriaColumn" msprop:Generator_UserColumnName="Materia" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="950" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tema_avance" msprop:Generator_ColumnVarNameInTable="columntema_avance" msprop:Generator_ColumnPropNameInRow="tema_avance" msprop:Generator_ColumnPropNameInTable="tema_avanceColumn" msprop:Generator_UserColumnName="tema_avance" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="950" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="carrera" msprop:Generator_ColumnVarNameInTable="columncarrera" msprop:Generator_ColumnPropNameInRow="carrera" msprop:Generator_ColumnPropNameInTable="carreraColumn" msprop:Generator_UserColumnName="carrera" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cant_est" msprop:Generator_ColumnVarNameInTable="columncant_est" msprop:Generator_ColumnPropNameInRow="cant_est" msprop:Generator_ColumnPropNameInTable="cant_estColumn" msprop:Generator_UserColumnName="cant_est" type="xs:int" minOccurs="0" />
+              <xs:element name="hr_ingreso" msprop:Generator_ColumnVarNameInTable="columnhr_ingreso" msprop:Generator_ColumnPropNameInRow="hr_ingreso" msprop:Generator_ColumnPropNameInTable="hr_ingresoColumn" msprop:Generator_UserColumnName="hr_ingreso" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="hr_salida" msprop:Generator_ColumnVarNameInTable="columnhr_salida" msprop:Generator_ColumnPropNameInRow="hr_salida" msprop:Generator_ColumnPropNameInTable="hr_salidaColumn" msprop:Generator_UserColumnName="hr_salida" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="MINUTOS" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMINUTOS" msprop:Generator_ColumnPropNameInRow="MINUTOS" msprop:Generator_ColumnPropNameInTable="MINUTOSColumn" msprop:Generator_UserColumnName="MINUTOS" type="xs:int" minOccurs="0" />
+              <xs:element name="observaciones" msprop:Generator_ColumnVarNameInTable="columnobservaciones" msprop:Generator_ColumnPropNameInRow="observaciones" msprop:Generator_ColumnPropNameInTable="observacionesColumn" msprop:Generator_UserColumnName="observaciones" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

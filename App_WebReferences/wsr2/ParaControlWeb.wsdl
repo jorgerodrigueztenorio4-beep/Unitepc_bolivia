@@ -1,0 +1,921 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://181.188.185.211:27777/ParaControlWeb.asmx" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://181.188.185.211:27777/ParaControlWeb.asmx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://181.188.185.211:27777/ParaControlWeb.asmx">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="ListaDeSedes">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListaDeSedesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaDeSedesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RRHHListaDeSedesDocentes">
+        <s:complexType />
+      </s:element>
+      <s:element name="RRHHListaDeSedesDocentesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RRHHListaDeSedesDocentesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaDeFacultades">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSede" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaDeFacultadesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaDeFacultadesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaDeCarreras">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSede" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdFacultad" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaDeCarrerasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaDeCarrerasResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaEstudiante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSede" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cadenita" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaEstudianteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscaEstudianteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaEstudianteXCarrrera">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSede" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cadenita" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodCarrera" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaEstudianteXCarrreraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscaEstudianteXCarrreraResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PagosRealizados">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSede" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Codalum" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodCarre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Nacionalidad" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PagosRealizadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PagosRealizadosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaDeMateriasXCarrera">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSede" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SisAntigNuevo" type="s1:char" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdCarrera" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaDeMateriasXCarreraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaDeMateriasXCarreraResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaDeEstudiantesXMateria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSede" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SisAntigNuevo" type="s1:char" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Materia" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Grupo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaDeEstudiantesXMateriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaDeEstudiantesXMateriaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MateriasDelEstudiantes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSede" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SisAntigNuevo" type="s1:char" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdCarrera" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Codalum" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MateriasDelEstudiantesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MateriasDelEstudiantesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaDeEstudiantesConMateriasFechacontrato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSede" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SisAntigNuevo" type="s1:char" />
+            <s:element minOccurs="0" maxOccurs="1" name="FechaContrato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdCarrera" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaDeEstudiantesConMateriasFechacontratoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaDeEstudiantesConMateriasFechacontratoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaDeEstudiantesConGrupoCambiadoyFechacontrato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSede" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SisAntigNuevo" type="s1:char" />
+            <s:element minOccurs="0" maxOccurs="1" name="FechaCambio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdCarrera" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaDeEstudiantesConGrupoCambiadoyFechacontratoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaDeEstudiantesConGrupoCambiadoyFechacontratoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaDeEstudiantesXMateriaOrdenadoFechaContrato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSede" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SisAntigNuevo" type="s1:char" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Materia" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaDeEstudiantesXMateriaOrdenadoFechaContratoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaDeEstudiantesXMateriaOrdenadoFechaContratoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaDeEstudiantesConMaterias_EntreFechasContrato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSede" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SisAntigNuevo" type="s1:char" />
+            <s:element minOccurs="0" maxOccurs="1" name="FechaIni" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FechaFin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdCarrera" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaDeEstudiantesConMaterias_EntreFechasContratoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaDeEstudiantesConMaterias_EntreFechasContratoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlanesDeEstudio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSede" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SisAntigNuevo" type="s1:char" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdCarrera" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlanesDeEstudioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlanesDeEstudioResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RRHHListaDeDocentes2023">
+        <s:complexType />
+      </s:element>
+      <s:element name="RRHHListaDeDocentes2023Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RRHHListaDeDocentes2023Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaEstudiante2022">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSede" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SisAntigNuevo" type="s1:char" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cadenita" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaEstudiante2022Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscaEstudiante2022Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocentesGrabadoContrato2022">
+        <s:complexType />
+      </s:element>
+      <s:element name="DocentesGrabadoContrato2022Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocentesGrabadoContrato2022Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ListaDeSedesSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaDeSedes" />
+  </wsdl:message>
+  <wsdl:message name="ListaDeSedesSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaDeSedesResponse" />
+  </wsdl:message>
+  <wsdl:message name="RRHHListaDeSedesDocentesSoapIn">
+    <wsdl:part name="parameters" element="tns:RRHHListaDeSedesDocentes" />
+  </wsdl:message>
+  <wsdl:message name="RRHHListaDeSedesDocentesSoapOut">
+    <wsdl:part name="parameters" element="tns:RRHHListaDeSedesDocentesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaDeFacultadesSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaDeFacultades" />
+  </wsdl:message>
+  <wsdl:message name="ListaDeFacultadesSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaDeFacultadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaDeCarrerasSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaDeCarreras" />
+  </wsdl:message>
+  <wsdl:message name="ListaDeCarrerasSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaDeCarrerasResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscaEstudianteSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscaEstudiante" />
+  </wsdl:message>
+  <wsdl:message name="BuscaEstudianteSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscaEstudianteResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscaEstudianteXCarrreraSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscaEstudianteXCarrrera" />
+  </wsdl:message>
+  <wsdl:message name="BuscaEstudianteXCarrreraSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscaEstudianteXCarrreraResponse" />
+  </wsdl:message>
+  <wsdl:message name="PagosRealizadosSoapIn">
+    <wsdl:part name="parameters" element="tns:PagosRealizados" />
+  </wsdl:message>
+  <wsdl:message name="PagosRealizadosSoapOut">
+    <wsdl:part name="parameters" element="tns:PagosRealizadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaDeMateriasXCarreraSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaDeMateriasXCarrera" />
+  </wsdl:message>
+  <wsdl:message name="ListaDeMateriasXCarreraSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaDeMateriasXCarreraResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaDeEstudiantesXMateriaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaDeEstudiantesXMateria" />
+  </wsdl:message>
+  <wsdl:message name="ListaDeEstudiantesXMateriaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaDeEstudiantesXMateriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="MateriasDelEstudiantesSoapIn">
+    <wsdl:part name="parameters" element="tns:MateriasDelEstudiantes" />
+  </wsdl:message>
+  <wsdl:message name="MateriasDelEstudiantesSoapOut">
+    <wsdl:part name="parameters" element="tns:MateriasDelEstudiantesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaDeEstudiantesConMateriasFechacontratoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaDeEstudiantesConMateriasFechacontrato" />
+  </wsdl:message>
+  <wsdl:message name="ListaDeEstudiantesConMateriasFechacontratoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaDeEstudiantesConMateriasFechacontratoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaDeEstudiantesConGrupoCambiadoyFechacontratoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaDeEstudiantesConGrupoCambiadoyFechacontrato" />
+  </wsdl:message>
+  <wsdl:message name="ListaDeEstudiantesConGrupoCambiadoyFechacontratoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaDeEstudiantesConGrupoCambiadoyFechacontratoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaDeEstudiantesXMateriaOrdenadoFechaContratoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaDeEstudiantesXMateriaOrdenadoFechaContrato" />
+  </wsdl:message>
+  <wsdl:message name="ListaDeEstudiantesXMateriaOrdenadoFechaContratoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaDeEstudiantesXMateriaOrdenadoFechaContratoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaDeEstudiantesConMaterias_EntreFechasContratoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaDeEstudiantesConMaterias_EntreFechasContrato" />
+  </wsdl:message>
+  <wsdl:message name="ListaDeEstudiantesConMaterias_EntreFechasContratoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaDeEstudiantesConMaterias_EntreFechasContratoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlanesDeEstudioSoapIn">
+    <wsdl:part name="parameters" element="tns:PlanesDeEstudio" />
+  </wsdl:message>
+  <wsdl:message name="PlanesDeEstudioSoapOut">
+    <wsdl:part name="parameters" element="tns:PlanesDeEstudioResponse" />
+  </wsdl:message>
+  <wsdl:message name="RRHHListaDeDocentes2023SoapIn">
+    <wsdl:part name="parameters" element="tns:RRHHListaDeDocentes2023" />
+  </wsdl:message>
+  <wsdl:message name="RRHHListaDeDocentes2023SoapOut">
+    <wsdl:part name="parameters" element="tns:RRHHListaDeDocentes2023Response" />
+  </wsdl:message>
+  <wsdl:message name="BuscaEstudiante2022SoapIn">
+    <wsdl:part name="parameters" element="tns:BuscaEstudiante2022" />
+  </wsdl:message>
+  <wsdl:message name="BuscaEstudiante2022SoapOut">
+    <wsdl:part name="parameters" element="tns:BuscaEstudiante2022Response" />
+  </wsdl:message>
+  <wsdl:message name="DocentesGrabadoContrato2022SoapIn">
+    <wsdl:part name="parameters" element="tns:DocentesGrabadoContrato2022" />
+  </wsdl:message>
+  <wsdl:message name="DocentesGrabadoContrato2022SoapOut">
+    <wsdl:part name="parameters" element="tns:DocentesGrabadoContrato2022Response" />
+  </wsdl:message>
+  <wsdl:portType name="ParaControlWebSoap">
+    <wsdl:operation name="ListaDeSedes">
+      <wsdl:input message="tns:ListaDeSedesSoapIn" />
+      <wsdl:output message="tns:ListaDeSedesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RRHHListaDeSedesDocentes">
+      <wsdl:input message="tns:RRHHListaDeSedesDocentesSoapIn" />
+      <wsdl:output message="tns:RRHHListaDeSedesDocentesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeFacultades">
+      <wsdl:input message="tns:ListaDeFacultadesSoapIn" />
+      <wsdl:output message="tns:ListaDeFacultadesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeCarreras">
+      <wsdl:input message="tns:ListaDeCarrerasSoapIn" />
+      <wsdl:output message="tns:ListaDeCarrerasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaEstudiante">
+      <wsdl:input message="tns:BuscaEstudianteSoapIn" />
+      <wsdl:output message="tns:BuscaEstudianteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaEstudianteXCarrrera">
+      <wsdl:input message="tns:BuscaEstudianteXCarrreraSoapIn" />
+      <wsdl:output message="tns:BuscaEstudianteXCarrreraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PagosRealizados">
+      <wsdl:input message="tns:PagosRealizadosSoapIn" />
+      <wsdl:output message="tns:PagosRealizadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeMateriasXCarrera">
+      <wsdl:input message="tns:ListaDeMateriasXCarreraSoapIn" />
+      <wsdl:output message="tns:ListaDeMateriasXCarreraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeEstudiantesXMateria">
+      <wsdl:input message="tns:ListaDeEstudiantesXMateriaSoapIn" />
+      <wsdl:output message="tns:ListaDeEstudiantesXMateriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MateriasDelEstudiantes">
+      <wsdl:input message="tns:MateriasDelEstudiantesSoapIn" />
+      <wsdl:output message="tns:MateriasDelEstudiantesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeEstudiantesConMateriasFechacontrato">
+      <wsdl:input message="tns:ListaDeEstudiantesConMateriasFechacontratoSoapIn" />
+      <wsdl:output message="tns:ListaDeEstudiantesConMateriasFechacontratoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeEstudiantesConGrupoCambiadoyFechacontrato">
+      <wsdl:input message="tns:ListaDeEstudiantesConGrupoCambiadoyFechacontratoSoapIn" />
+      <wsdl:output message="tns:ListaDeEstudiantesConGrupoCambiadoyFechacontratoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeEstudiantesXMateriaOrdenadoFechaContrato">
+      <wsdl:input message="tns:ListaDeEstudiantesXMateriaOrdenadoFechaContratoSoapIn" />
+      <wsdl:output message="tns:ListaDeEstudiantesXMateriaOrdenadoFechaContratoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeEstudiantesConMaterias_EntreFechasContrato">
+      <wsdl:input message="tns:ListaDeEstudiantesConMaterias_EntreFechasContratoSoapIn" />
+      <wsdl:output message="tns:ListaDeEstudiantesConMaterias_EntreFechasContratoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlanesDeEstudio">
+      <wsdl:input message="tns:PlanesDeEstudioSoapIn" />
+      <wsdl:output message="tns:PlanesDeEstudioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RRHHListaDeDocentes2023">
+      <wsdl:input message="tns:RRHHListaDeDocentes2023SoapIn" />
+      <wsdl:output message="tns:RRHHListaDeDocentes2023SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaEstudiante2022">
+      <wsdl:input message="tns:BuscaEstudiante2022SoapIn" />
+      <wsdl:output message="tns:BuscaEstudiante2022SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DocentesGrabadoContrato2022">
+      <wsdl:input message="tns:DocentesGrabadoContrato2022SoapIn" />
+      <wsdl:output message="tns:DocentesGrabadoContrato2022SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ParaControlWebSoap" type="tns:ParaControlWebSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListaDeSedes">
+      <soap:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/ListaDeSedes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RRHHListaDeSedesDocentes">
+      <soap:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/RRHHListaDeSedesDocentes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeFacultades">
+      <soap:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/ListaDeFacultades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeCarreras">
+      <soap:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/ListaDeCarreras" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaEstudiante">
+      <soap:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/BuscaEstudiante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaEstudianteXCarrrera">
+      <soap:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/BuscaEstudianteXCarrrera" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PagosRealizados">
+      <soap:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/PagosRealizados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeMateriasXCarrera">
+      <soap:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/ListaDeMateriasXCarrera" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeEstudiantesXMateria">
+      <soap:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/ListaDeEstudiantesXMateria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MateriasDelEstudiantes">
+      <soap:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/MateriasDelEstudiantes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeEstudiantesConMateriasFechacontrato">
+      <soap:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/ListaDeEstudiantesConMateriasFechacontrato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeEstudiantesConGrupoCambiadoyFechacontrato">
+      <soap:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/ListaDeEstudiantesConGrupoCambiadoyFechacontrato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeEstudiantesXMateriaOrdenadoFechaContrato">
+      <soap:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/ListaDeEstudiantesXMateriaOrdenadoFechaContrato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeEstudiantesConMaterias_EntreFechasContrato">
+      <soap:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/ListaDeEstudiantesConMaterias_EntreFechasContrato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlanesDeEstudio">
+      <soap:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/PlanesDeEstudio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RRHHListaDeDocentes2023">
+      <soap:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/RRHHListaDeDocentes2023" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaEstudiante2022">
+      <soap:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/BuscaEstudiante2022" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocentesGrabadoContrato2022">
+      <soap:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/DocentesGrabadoContrato2022" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ParaControlWebSoap12" type="tns:ParaControlWebSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListaDeSedes">
+      <soap12:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/ListaDeSedes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RRHHListaDeSedesDocentes">
+      <soap12:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/RRHHListaDeSedesDocentes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeFacultades">
+      <soap12:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/ListaDeFacultades" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeCarreras">
+      <soap12:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/ListaDeCarreras" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaEstudiante">
+      <soap12:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/BuscaEstudiante" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaEstudianteXCarrrera">
+      <soap12:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/BuscaEstudianteXCarrrera" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PagosRealizados">
+      <soap12:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/PagosRealizados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeMateriasXCarrera">
+      <soap12:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/ListaDeMateriasXCarrera" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeEstudiantesXMateria">
+      <soap12:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/ListaDeEstudiantesXMateria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MateriasDelEstudiantes">
+      <soap12:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/MateriasDelEstudiantes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeEstudiantesConMateriasFechacontrato">
+      <soap12:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/ListaDeEstudiantesConMateriasFechacontrato" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeEstudiantesConGrupoCambiadoyFechacontrato">
+      <soap12:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/ListaDeEstudiantesConGrupoCambiadoyFechacontrato" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeEstudiantesXMateriaOrdenadoFechaContrato">
+      <soap12:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/ListaDeEstudiantesXMateriaOrdenadoFechaContrato" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDeEstudiantesConMaterias_EntreFechasContrato">
+      <soap12:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/ListaDeEstudiantesConMaterias_EntreFechasContrato" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlanesDeEstudio">
+      <soap12:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/PlanesDeEstudio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RRHHListaDeDocentes2023">
+      <soap12:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/RRHHListaDeDocentes2023" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaEstudiante2022">
+      <soap12:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/BuscaEstudiante2022" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocentesGrabadoContrato2022">
+      <soap12:operation soapAction="http://181.188.185.211:27777/ParaControlWeb.asmx/DocentesGrabadoContrato2022" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ParaControlWeb">
+    <wsdl:port name="ParaControlWebSoap" binding="tns:ParaControlWebSoap">
+      <soap:address location="http://192.168.1.172:27272/ParaControlWeb.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ParaControlWebSoap12" binding="tns:ParaControlWebSoap12">
+      <soap12:address location="http://192.168.1.172:27272/ParaControlWeb.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

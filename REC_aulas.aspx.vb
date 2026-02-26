@@ -1,0 +1,17 @@
+﻿
+Partial Class REC_aulas
+    Inherits System.Web.UI.Page
+
+    Private Sub DIR_ACD_aulas_Load(sender As Object, e As EventArgs) Handles Me.Load
+        If Session("idus") <> "" Then
+
+            lbl_cargo.Text = Session("rol_nombre") + " : " + Session("nombre_usuario")
+            ' txt_cius.Text = Session("idus")
+
+
+
+        Else
+            Response.Redirect("~/sesion.aspx")
+        End If
+    End Sub
+End Class

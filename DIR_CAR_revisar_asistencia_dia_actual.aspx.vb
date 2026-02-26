@@ -1,0 +1,20 @@
+﻿
+Partial Class DIR_CAR_revisar_asistencia_dia_actual
+    Inherits System.Web.UI.Page
+
+    Private Sub DIR_CAR_revisar_asistencia_dia_actual_Load(sender As Object, e As EventArgs) Handles Me.Load
+        If Session("idus") <> "" Then
+
+            ' lbl_cargo.Text = Session("rol_nombre") + " de " + Session("nombrecar") + "--->" + Session("nombre_usuario")
+            'txt_cius.Text = Session("idus")
+            'txt_sede.text = Session("sede")
+            txt_sigla_car.Text = Session("siglacar")
+            ' lbl_cargo.Text = Session("rol_nombre") + " : " + Session("nombre_usuario")
+            txt_sede.Text = Session("sede")
+
+
+        Else
+            Response.Redirect("~/sesion.aspx")
+        End If
+    End Sub
+End Class

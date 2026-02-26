@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_horarios_todo" targetNamespace="http://tempuri.org/ds_horarios_todo.xsd" xmlns:mstns="http://tempuri.org/ds_horarios_todo.xsd" xmlns="http://tempuri.org/ds_horarios_todo.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="unitepc_boliviaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="unitepc_boliviaConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.unitepc_boliviaConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="unitepc_boliviaConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select th.id_horario,th.gestion ,th.ci_doc  ,(tp.nombres+' '+tp.primerApellido +' '+tp.segundoApellido )as docente,a.nom_aula_lab , th.hora_inicio ,th.hora_fin,th.dia,th.tipo_clase  ,p.SiglaP,p.Materia,p.Sis_plan
+from tb_horario th
+ join tb_designacion td on td.id_designacion  = th.id_horario 
+ join tb_personal tp on th.ci_doc = tp.ci 
+ join planes_estudios p on td.id_materia = p.id_plan
+ join tb_aula a on th.aula = a.id_nomal  
+  join tb_sedes s on th.sede = s.idSede 
+ join tb_carreras c on p.codcar = c.CARSIGLA </CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_horario" DataSetColumn="id_horario" />
+              <Mapping SourceColumn="gestion" DataSetColumn="gestion" />
+              <Mapping SourceColumn="ci_doc" DataSetColumn="ci_doc" />
+              <Mapping SourceColumn="docente" DataSetColumn="docente" />
+              <Mapping SourceColumn="nom_aula_lab" DataSetColumn="nom_aula_lab" />
+              <Mapping SourceColumn="hora_inicio" DataSetColumn="hora_inicio" />
+              <Mapping SourceColumn="hora_fin" DataSetColumn="hora_fin" />
+              <Mapping SourceColumn="dia" DataSetColumn="dia" />
+              <Mapping SourceColumn="tipo_clase" DataSetColumn="tipo_clase" />
+              <Mapping SourceColumn="SiglaP" DataSetColumn="SiglaP" />
+              <Mapping SourceColumn="Materia" DataSetColumn="Materia" />
+              <Mapping SourceColumn="Sis_plan" DataSetColumn="Sis_plan" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_horarios_todo" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ds_horarios_todo" msprop:Generator_DataSetName="ds_horarios_todo">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_horario" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_horario" msprop:Generator_ColumnPropNameInRow="id_horario" msprop:Generator_ColumnPropNameInTable="id_horarioColumn" msprop:Generator_UserColumnName="id_horario" type="xs:int" />
+              <xs:element name="gestion" msprop:Generator_ColumnVarNameInTable="columngestion" msprop:Generator_ColumnPropNameInRow="gestion" msprop:Generator_ColumnPropNameInTable="gestionColumn" msprop:Generator_UserColumnName="gestion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ci_doc" msprop:Generator_ColumnVarNameInTable="columnci_doc" msprop:Generator_ColumnPropNameInRow="ci_doc" msprop:Generator_ColumnPropNameInTable="ci_docColumn" msprop:Generator_UserColumnName="ci_doc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="350" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="docente" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndocente" msprop:Generator_ColumnPropNameInRow="docente" msprop:Generator_ColumnPropNameInTable="docenteColumn" msprop:Generator_UserColumnName="docente" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="767" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nom_aula_lab" msprop:Generator_ColumnVarNameInTable="columnnom_aula_lab" msprop:Generator_ColumnPropNameInRow="nom_aula_lab" msprop:Generator_ColumnPropNameInTable="nom_aula_labColumn" msprop:Generator_UserColumnName="nom_aula_lab" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="350" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="hora_inicio" msprop:Generator_ColumnVarNameInTable="columnhora_inicio" msprop:Generator_ColumnPropNameInRow="hora_inicio" msprop:Generator_ColumnPropNameInTable="hora_inicioColumn" msprop:Generator_UserColumnName="hora_inicio" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="hora_fin" msprop:Generator_ColumnVarNameInTable="columnhora_fin" msprop:Generator_ColumnPropNameInRow="hora_fin" msprop:Generator_ColumnPropNameInTable="hora_finColumn" msprop:Generator_UserColumnName="hora_fin" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dia" msprop:Generator_ColumnVarNameInTable="columndia" msprop:Generator_ColumnPropNameInRow="dia" msprop:Generator_ColumnPropNameInTable="diaColumn" msprop:Generator_UserColumnName="dia" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="350" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tipo_clase" msprop:Generator_ColumnVarNameInTable="columntipo_clase" msprop:Generator_ColumnPropNameInRow="tipo_clase" msprop:Generator_ColumnPropNameInTable="tipo_claseColumn" msprop:Generator_UserColumnName="tipo_clase" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SiglaP" msprop:Generator_ColumnVarNameInTable="columnSiglaP" msprop:Generator_ColumnPropNameInRow="SiglaP" msprop:Generator_ColumnPropNameInTable="SiglaPColumn" msprop:Generator_UserColumnName="SiglaP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Materia" msprop:Generator_ColumnVarNameInTable="columnMateria" msprop:Generator_ColumnPropNameInRow="Materia" msprop:Generator_ColumnPropNameInTable="MateriaColumn" msprop:Generator_UserColumnName="Materia" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sis_plan" msprop:Generator_ColumnVarNameInTable="columnSis_plan" msprop:Generator_ColumnPropNameInRow="Sis_plan" msprop:Generator_ColumnPropNameInTable="Sis_planColumn" msprop:Generator_UserColumnName="Sis_plan" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
