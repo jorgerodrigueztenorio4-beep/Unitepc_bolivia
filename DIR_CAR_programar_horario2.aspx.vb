@@ -113,28 +113,7 @@ Partial Class DIR_CAR_programar_horario2
 
         End If
 
-        'If ddl_hr_ini.SelectedValue.ToString = "Seleccione la Hora de Inicio" Then
-        '    Page.ClientScript.RegisterStartupScript(Me.GetType(), "Scripts", "<script>alert('Seleccione una Hora de Inicio');</script>")
-        'End If
-        'If ddl_min_ini.SelectedValue.ToString = "Seleccione Minutos de Inicio" Then
-        '    Page.ClientScript.RegisterStartupScript(Me.GetType(), "Scripts", "<script>alert('Seleccione una Minutos de Inicio');</script>")
-        'End If
-        'If ddl_hra_fin.SelectedValue.ToString = "Seleccione la Hora de Fin" Then
-        '    Page.ClientScript.RegisterStartupScript(Me.GetType(), "Scripts", "<script>alert('Seleccione una Hora de Fin');</script>")
-        'End If
-        'If ddl_min_fin.SelectedValue.ToString = "Seleccione Minutos de Fin" Then
-        '    Page.ClientScript.RegisterStartupScript(Me.GetType(), "Scripts", "<script>alert('Seleccione una Minutos de Fin');</script>")
-        'End If
-        'sql_ds_horario.Insert()
-        'gv_clases.DataBind()
-
-
         gv_prog.DataBind()
-
-
-
-
-
     End Sub
     Protected Sub ddl_materias_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddl_materias.SelectedIndexChanged
 
@@ -142,7 +121,7 @@ Partial Class DIR_CAR_programar_horario2
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         'gv_horarioscreados.DataBind()
         gv_clases.DataBind()
-
+        GridView1.databind()
         txt_id_horarioselec.Text = gv_clases.Rows(0).Cells(1).Text
 
         If gv_clases.Rows(0).Cells(3).Text = "Teorico" Then
@@ -206,13 +185,8 @@ Partial Class DIR_CAR_programar_horario2
                 Next
             Next
 
-
-
-
-
-
             '*********hasta aqui datos del docente 
-            ClientScript.RegisterStartupScript(Me.GetType(), "mensaje", "<script>swal({title:""UNITEPC"", text:""Designacion registrado Exitosamente"", type: ""success"",timer:3000}, function(){window.location.href = ""DIR_CAR_programar_horario2.aspx"";});</script>")
+            ' ClientScript.RegisterStartupScript(Me.GetType(), "mensaje", "<script>swal({title:""UNITEPC"", text:""Designacion registrado Exitosamente"", type: ""success"",timer:3000}, function(){window.location.href = ""DIR_CAR_programar_horario2.aspx"";});</script>")
         End If
 
 

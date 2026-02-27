@@ -183,20 +183,7 @@ where CARSIGLA =@siglacar">
 
                     </div>
 
-                    <%--<asp:GridView ID="gv_clases" CssClass=" table-hover mt-1 " runat="server" AutoGenerateColumns="False" DataSourceID="sql_ds_clase_no" Font-Size="9pt" DataKeyNames="id_horario" GridLines="None">
-                                                <Columns>
-                                                    <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ControlStyle-CssClass="btn-danger" />
-                                                    <asp:BoundField DataField="id_horario" HeaderText="Id." InsertVisible="False" ReadOnly="True" SortExpression="id_horario" />
-                                                    <asp:BoundField DataField="dia" HeaderText="Dia" SortExpression="dia" />
-                                                    <asp:BoundField DataField="tipo_clase" HeaderText="tipo de Clase" SortExpression="tipo_clase" />
-                                                    <asp:BoundField DataField="hora_inicio" HeaderText="Hora de Inicio" SortExpression="hora_inicio" />
-                                                    <asp:BoundField DataField="hora_fin" HeaderText="Hora de fin" SortExpression="hora_fin" />
-                                                    <asp:BoundField DataField="NombreSede" HeaderText="Sede" SortExpression="NombreSede" Visible="false" />
-                                                    <asp:BoundField DataField="nom_bloque" HeaderText="Bloque" SortExpression="nom_bloque" />
-                                                    <asp:BoundField DataField="nom_aula_lab" HeaderText="Aula/Lab." SortExpression="nom_aula_lab" />
-                                                </Columns>
-                                                <HeaderStyle BackColor="#D4EDDA" BorderColor="#C3E6CB" ForeColor="#155724" />
-                                               </asp:GridView>--%>
+                 
 
                     <asp:GridView ID="gv_clases"
                         CssClass="table table-hover mt-1"
@@ -224,6 +211,7 @@ where CARSIGLA =@siglacar">
                                 </ItemTemplate>
                             </asp:TemplateField>
 
+                            <asp:BoundField DataField="tipo_clase" HeaderText="Tipo de clase" ReadOnly="True" />
 
                             <asp:TemplateField HeaderText="Horario">
                                 <ItemTemplate>
@@ -604,7 +592,7 @@ where  h.gestion ='1-2026' and t.gestion ='1-2026' and  h.dia =@dia and h.sede=@
         <asp:TextBox ID="txt_ciusuario" runat="server" Visible="False"></asp:TextBox>
         <asp:TextBox ID="txt_dia" runat="server" Visible="False"></asp:TextBox>
         <asp:TextBox ID="txt_id_sede" runat="server" Visible="False"></asp:TextBox>
-        <asp:TextBox ID="txt_horas" runat="server" Visible="False"></asp:TextBox>
+        <asp:TextBox ID="txt_horas" runat="server"></asp:TextBox>
 
         <asp:SqlDataSource ID="SQL_DS_HABILITAR_HORARIO" runat="server" ConnectionString="<%$ ConnectionStrings:unitepc_boliviaConnectionString %>" SelectCommand="SELECT id_habilitados, carrera, habilitacion, SEDE, fecha_modificacion FROM tb_habilitaciones_horarios WHERE (SEDE = @sede) AND (carrera = @carrera)">
             <SelectParameters>
