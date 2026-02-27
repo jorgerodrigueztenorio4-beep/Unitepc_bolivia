@@ -186,7 +186,7 @@ Partial Class DIR_CAR_programar_horario2
             Next
 
             '*********hasta aqui datos del docente 
-            ' ClientScript.RegisterStartupScript(Me.GetType(), "mensaje", "<script>swal({title:""UNITEPC"", text:""Designacion registrado Exitosamente"", type: ""success"",timer:3000}, function(){window.location.href = ""DIR_CAR_programar_horario2.aspx"";});</script>")
+            ClientScript.RegisterStartupScript(Me.GetType(), "mensaje", "<script>swal({title:""UNITEPC"", text:""Designacion registrado Exitosamente"", type: ""success"",timer:3000}, function(){window.location.href = ""DIR_CAR_programar_horario2.aspx"";});</script>")
         End If
 
 
